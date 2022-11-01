@@ -27,10 +27,14 @@ return require('packer').startup(function()
       			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
       			"MunifTanjim/nui.nvim",
     	},
+
  	use {
         	'nvim-treesitter/nvim-treesitter',
         	run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    	}
+    	},
+
+	-- LuaSnip
+	use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
   }
 
 end)
