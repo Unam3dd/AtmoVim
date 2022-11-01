@@ -5,6 +5,7 @@ return require('packer').startup(function()
 
 	-- Colorscheme
 	use 'gruvbox-community/gruvbox'
+	use 'olivercederborg/poimandres.nvim'
 
 	use 'glepnir/dashboard-nvim'
 
