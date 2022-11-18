@@ -1,0 +1,11 @@
+-- Gruvbox
+vim.cmd[[colorscheme gruvbox]]
+--vim.cmd[[colorscheme everblush]]
+--vim.cmd[[colorscheme palenightfall]]
+--vim.cmd[[colorscheme poimandres]]
+vim.cmd[[let g:transparent_enabled = v:true]]
+vim.cmd[[set termguicolors]]
+--vim.cmd[[let g:pyramid_transparant_mode = 1]]
+--vim.cmd[[let g:variable_style = "bold"]]
+--vim.cmd[[let g:function_style = "NONE"]]
+--vim.cmd[[colorscheme pyramid]]
