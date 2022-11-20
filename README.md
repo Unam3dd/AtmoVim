@@ -62,3 +62,5 @@ Mason
 Godbolt
 ToggleTerm
 Telescope
+
+4 colorscheme integrated
