@@ -127,7 +127,7 @@ local db = require('dashboard')
 
 -- linux
 
-db.preview_command = 'python3 -c "import os;import random;dirs=os.listdir(\'db\');rd=random.randint(0,len(dirs)-1);f=open(\'db/\' + dirs[rd], \'rb\');data=f.read().decode(\'utf-8\');f.close();print(data)"'
+db.preview_command = 'python3 -c "import os;import random;dirs=os.listdir(os.path.expanduser(\'~\') + \'/.config/nvim/db\');rd=random.randint(0,len(dirs)-1);f=open(os.path.expanduser(\'~\') + \'/.config/nvim/db/\' + dirs[rd], \'rb\');data=f.read().decode(\'utf-8\');f.close();print(data)"'
 
 --
 db.preview_file_path = home .. '/.config/nvim/db/kelly_price.jpg'
