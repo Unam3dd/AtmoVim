@@ -18,6 +18,7 @@ vim.api.nvim_set_keymap('n', '<S-Left>', '<C-w><Left>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<S-Up>', '<C-w><Up>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<S-Down>', '<C-w><Down>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<S-n>', ':!(norminette)<CR>', { noremap = true})
+vim.api.nvim_set_keymap('n', '<C-x>', ':!(python3 -m compiledb make)<CR>', { noremap = true})
 
 -- Options
 --vim.o.relativenumber = true
@@ -99,6 +100,12 @@ require("neo-tree").setup({
 	}
 })
 
+vim.cmd([[set mouse=a]])
+vim.cmd([[set guioptions-=r]])
+vim.cmd([[set guioptions-=R]])
+vim.cmd([[set guioptions-=l]])
+vim.cmd([[set guioptions-=L]])
+vim.cmd([[au 		BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]])
 vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 vim.cmd([[filetype plugin indent on]])
 vim.cmd([[set smartindent]])
@@ -108,6 +115,10 @@ vim.cmd([[set encoding=utf-8]])
 vim.cmd([[set tabstop=4]])
 vim.cmd([[set shiftwidth=4]])
 vim.cmd([[set noswapfile]])
+vim.cmd([[set showmode]])
+vim.cmd([[set pumheight=50]])
+vim.cmd([[set whichwrap+=<,>,[,]])
+vim.cmd([[let g:load_doxygen_syntax=1]])
 vim.api.nvim_set_keymap('i', '<C-g>', '<esc>:Neotree<CR', {})
 vim.api.nvim_set_keymap('', '<C-g>', '<esc>:Neotree<CR>', {})
 
@@ -116,12 +127,12 @@ local db = require('dashboard')
 
 -- linux
 
-db.preview_command = 'cat'
+db.preview_command = 'python3 -c "import os;import random;dirs=os.listdir(\'db\');rd=random.randint(0,len(dirs)-1);f=open(\'db/\' + dirs[rd], \'rb\');data=f.read().decode(\'utf-8\');f.close();print(data)"'
 
 --
-db.preview_file_path = home .. '/.config/nvim/db/banner.cat'
-db.preview_file_height = 17
-db.preview_file_width = 70
+db.preview_file_path = home .. '/.config/nvim/db/kelly_price.jpg'
+db.preview_file_height = 20
+db.preview_file_width = 40
 db.custom_center = {
 	{icon = '  ',
       	desc = 'Recently latest session                  ',
@@ -325,3 +336,11 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+-- Coc Autocomplete
+vim.cmd([[inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"]])
+
+require("toggleterm").setup()
+
+vim.cmd([[nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>]])
+vim.cmd([[inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>]])

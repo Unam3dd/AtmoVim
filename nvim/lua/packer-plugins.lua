@@ -45,6 +45,8 @@ return require('packer').startup(function()
 
 	use 'kyazdani42/nvim-web-devicons'
 
+	use {'neoclide/coc.nvim', branch = 'release'}
+
 	use {
   		'romgrk/barbar.nvim',
   		requires = {'kyazdani42/nvim-web-devicons'}
@@ -76,6 +78,10 @@ return require('packer').startup(function()
         }
     end,
     run = 'make'
-}
+	}
+
+	use {"akinsho/toggleterm.nvim", tag = '*'}
+
+	use {"p00f/godbolt.nvim"}
 
 end)

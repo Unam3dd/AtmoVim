@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/nfs/homes/stales/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/nfs/homes/stales/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/nfs/homes/stales/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/nfs/homes/stales/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/nfs/homes/stales/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,112 +76,137 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["barbar.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
   ["bufferline.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  ["coc.nvim"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
   },
   ["dashboard-nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
   },
   everblush = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/everblush",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/everblush",
     url = "https://github.com/Everblush/everblush.nvim"
+  },
+  ["godbolt.nvim"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/godbolt.nvim",
+    url = "https://github.com/p00f/godbolt.nvim"
   },
   gruvbox = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/gruvbox",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/gruvbox-community/gruvbox"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["neo-tree.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
   ["nui.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-spotify"] = {
+    config = { "\27LJ\2\ny\0\0\5\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\4\0005\4\3\0=\4\5\3B\1\2\1K\0\1\0\vstatus\1\0\0\1\0\2\vformat\16%s %t by %a\20update_interval\3êN\nsetup\17nvim-spotify\frequire\0" },
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nvim-spotify",
+    url = "https://github.com/KadoBOT/nvim-spotify"
   },
   ["nvim-transparent"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/nvim-transparent",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nvim-transparent",
     url = "https://github.com/xiyaowong/nvim-transparent"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["palenightfall.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/palenightfall.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/palenightfall.nvim",
     url = "https://github.com/JoosepAlviste/palenightfall.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["poimandres.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/poimandres.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/poimandres.nvim",
     url = "https://github.com/olivercederborg/poimandres.nvim"
   },
   ["pyramid.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/pyramid.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/pyramid.nvim",
     url = "https://github.com/louisboilard/pyramid.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["vim-snippets"] = {
     loaded = true,
-    path = "/nfs/homes/stales/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/vim-snippets",
     url = "https://github.com/honza/vim-snippets"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-spotify
+time([[Config for nvim-spotify]], true)
+try_loadstring("\27LJ\2\ny\0\0\5\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\4\0005\4\3\0=\4\5\3B\1\2\1K\0\1\0\vstatus\1\0\0\1\0\2\vformat\16%s %t by %a\20update_interval\3êN\nsetup\17nvim-spotify\frequire\0", "config", "nvim-spotify")
+time([[Config for nvim-spotify]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
