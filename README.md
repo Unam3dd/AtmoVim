@@ -50,3 +50,15 @@ alias icat="kitty +kitten icat"
 ```
 cp -r kitty ~/.config/kitty/
 ```
+
+Plugins List
+
+Coc
+Treesiter
+NeoTree
+Coc-Snippets
+Coc-Clangd
+Mason
+Godbolt
+ToggleTerm
+Telescope
