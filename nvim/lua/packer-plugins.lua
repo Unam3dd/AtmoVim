@@ -84,4 +84,10 @@ return require('packer').startup(function()
 
 	use {"p00f/godbolt.nvim"}
 
+	use { "rktjmp/lush.nvim"}
+
+	use { "numToStr/Sakura.nvim" }
+
+	use { 'mhartington/oceanic-next'}
+
 end)
