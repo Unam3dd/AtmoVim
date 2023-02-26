@@ -90,4 +90,8 @@ return require('packer').startup(function()
 
 	use { 'mhartington/oceanic-next'}
 
+	use { 'shirk/vim-gas' }
+
+	use {'nyoom-engineering/oxocarbon.nvim'}
+
 end)

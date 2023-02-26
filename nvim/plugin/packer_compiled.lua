@@ -175,6 +175,11 @@ _G.packer_plugins = {
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/oceanic-next",
     url = "https://github.com/mhartington/oceanic-next"
   },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -209,6 +214,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["vim-gas"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/vim-gas",
+    url = "https://github.com/shirk/vim-gas"
   },
   ["vim-snippets"] = {
     loaded = true,
