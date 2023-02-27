@@ -9,6 +9,8 @@ return require('packer').startup(function()
 	use 'JoosepAlviste/palenightfall.nvim'
 	use { 'Everblush/everblush.nvim', as = 'everblush' }
 
+	use 'glepnir/dashboard-nvim'
+
 	-- Mason
 	use { 
 		"williamboman/mason.nvim",

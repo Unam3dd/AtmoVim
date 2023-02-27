@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
+  },
   everblush = {
     loaded = true,
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/everblush",

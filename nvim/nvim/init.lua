@@ -122,6 +122,44 @@ vim.cmd([[let g:load_doxygen_syntax=1]])
 vim.api.nvim_set_keymap('i', '<C-g>', '<esc>:Neotree<CR', {})
 vim.api.nvim_set_keymap('', '<C-g>', '<esc>:Neotree<CR>', {})
 
+-- Dashboard
+local db = require('dashboard')
+
+-- linux
+
+db.preview_command = 'python3 -c "import os;import random;dirs=os.listdir(os.path.expanduser(\'~\') + \'/.config/nvim/db\');rd=random.randint(0,len(dirs)-1);f=open(os.path.expanduser(\'~\') + \'/.config/nvim/db/\' + dirs[rd], \'rb\');data=f.read().decode(\'utf-8\');f.close();print(data)"'
+
+--
+db.preview_file_path = home .. '/.config/nvim/db/kelly_price.jpg'
+db.preview_file_height = 20
+db.preview_file_width = 40
+db.custom_center = {
+	{icon = '  ',
+      	desc = 'Recently latest session                  ',
+      	shortcut = 'SPC s l',
+      	action ='SessionLoad'},
+      	{icon = '  ',
+     	 desc = 'Recently opened files                   ',
+     	 action =  'DashboardFindHistory',
+      	shortcut = 'SPC f h'},
+      	{icon = '  ',
+      	desc = 'Find  File                              ',
+     	 action = 'Telescope find_files find_command=rg,--hidden,--files',
+      	shortcut = 'SPC f f'},
+      	{icon = '  ',
+      	desc ='File Browser                            ',
+      	action =  'Telescope file_browser',
+      	shortcut = 'SPC f b'},
+      	{icon = '  ',
+      	desc = 'Find  word                              ',
+      	action = 'Telescope live_grep',
+      	shortcut = 'SPC f w'},
+      	{icon = '  ',
+      	desc = 'Open Personal dotfiles                  ',
+      	action = 'Telescope dotfiles path=' .. home ..'/.dotfiles',
+      	shortcut = 'SPC f d'},
+}
+
 require 'nvim-treesitter.configs'.setup {
 	ensure_installed = { "c" },
 	sync_install = false,
