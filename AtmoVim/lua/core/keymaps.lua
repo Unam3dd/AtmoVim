@@ -12,4 +12,4 @@ vim.api.nvim_set_keymap('i', '<C-s>', '<ESC>:w!<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-q>', ':q!<CR>', { noremap = true })
 
 -- Save Shortcut
-vim.api.nvim_set_keymap('n', '<C-s>', '<ESC>:w!<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-s>', ':w!<CR>', { noremap = true })
