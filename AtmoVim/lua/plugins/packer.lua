@@ -25,8 +25,6 @@ return require('packer').startup(function(use)
 
 	-- Transparent
 	use 'xiyaowong/nvim-transparent'
-
-	-- Mason
 	
 	-- Mason
 	use { 
@@ -38,6 +36,12 @@ return require('packer').startup(function(use)
 	-- Coc
 
 	use {'neoclide/coc.nvim', branch = 'release'}
+
+	-- Treesiter
+	
+	use { 'nvim-treesitter/nvim-treesitter',
+        	run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	}
 
   if packer_bootstrap then
     require('packer').sync()
