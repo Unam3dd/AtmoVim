@@ -12,3 +12,5 @@ require('core.keymaps')
 -- Packer plugins
 require('plugins.packer')
 require('plugins.themes')
+require('plugins.mason')
+require('plugins.coc')

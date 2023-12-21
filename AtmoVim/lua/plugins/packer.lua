@@ -19,9 +19,25 @@ return require('packer').startup(function(use)
 
 	-- Colorscheme
 	use 'gruvbox-community/gruvbox'
+	use 'olivercederborg/poimandres.nvim'
+	use 'JoosepAlviste/palenightfall.nvim'
+	use { 'Everblush/everblush.nvim', as = 'everblush' }
 
 	-- Transparent
 	use 'xiyaowong/nvim-transparent'
+
+	-- Mason
+	
+	-- Mason
+	use { 
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	}
+
+	-- Coc
+
+	use {'neoclide/coc.nvim', branch = 'release'}
 
   if packer_bootstrap then
     require('packer').sync()

@@ -14,7 +14,7 @@ vim.o.shiftwidth = 4
 vim.o.mouse = "a"
 
 -- Disable swap files
-vim.o.noswapfile = true
+vim.cmd([[set noswapfile]])
 
 -- Windows scoped
 vim.wo.number = true
@@ -31,3 +31,5 @@ vim.cmd([[set whichwrap+=<,>,[,]])
 
 -- Coc Autocomplete
 vim.cmd([[inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"]])
+
+vim.opt.wildignore = { '*.o', '*.so','*.a', '__pycache__' }
