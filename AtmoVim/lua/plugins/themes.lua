@@ -7,6 +7,6 @@ vim.cmd[[set termguicolors]]
 --vim.cmd[[let g:transparent_enabled = v:true]]
 
 -- Gruvbox
-vim.cmd[[colorscheme gruvbox]]
+--vim.cmd[[colorscheme gruvbox]]
 --vim.cmd[[colorscheme everblush]]
---vim.cmd[[colorscheme poimandres]]
+vim.cmd[[colorscheme poimandres]]
