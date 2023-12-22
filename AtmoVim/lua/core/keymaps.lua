@@ -9,7 +9,7 @@ vim.api.nvim_set_keymap('i', '<C-x>', '<ESC>:qa!<CR>', { noremap = true, silent 
 -- Save Shortcut
 vim.api.nvim_set_keymap('i', '<C-s>', '<ESC>:w!<CR>', { noremap = true, silent = false})
 
-vim.api.nvim_set_keymap('i', '<C-t>', ':ToggleTerm<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '<C-t>', '<ESC>:ToggleTerm!<CR>', { noremap = true, silent = true})
 
 
 -- Normal Mode keymap
@@ -56,4 +56,4 @@ vim.api.nvim_set_keymap('v', '<C-s>', '<ESC>:w!<CR>', { noremap = true, silent =
 -- Exit shortcut
 vim.api.nvim_set_keymap('v', '<C-q>', '<ESC>:q!<CR>', { noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('v', '<C-t>', ':ToggleTerm<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<C-t>', '<ESC>:ToggleTerm!<CR>', { noremap = true, silent = true})
