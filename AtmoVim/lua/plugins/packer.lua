@@ -89,38 +89,55 @@ return require('packer').startup(function(use)
       event = 'VimEnter',
       config = function ()
           require('dashboard').setup {
+              theme = 'hyper',
               config = {
-                  shortcut = {
-                      {
-                          icon = ' ',
-                          icon_hl = '@variable',
-                          desc = 'Search Files',
-                          group = 'Label',
-                          action = 'Telescope find_files',
-                          key = 'f',
-                      },
-                      {
-                          icon = ' 󰚰 ',
-                          icon_hl = '@variable',
-                          desc = 'Update Packages',
-                          group = 'Label',
-                          action = 'AtmoVimUpdate',
-                          key = 'u',
-                      },
-                      {
-                          icon = '󰩈',
-                          icon_hl = '@variable',
-                          desc = 'Exit AtmoVim',
-                          group = 'Label',
-                          action = ':qa!',
-                          key = 'q'
+                        week_header = {
+                            enable = false,
+                        },
+                        project = { enable = true, limit = 12, icon = ' ', label = 'Projects', action = 'Telescope find_files cwd='},
+                        mru = { limit = 12, icon =  ' 󰚰 ', cwd_only = false },
+                        shortcut = {
+                          {
+                              icon = ' ',
+                              icon_hl = '@variable',
+                              desc = 'Search Files',
+                              desc_hl = 'String',
+                              group = 'Label',
+                              action = 'Telescope find_files',
+                              keymap = 'f',
+                              key_format = '[%s]',
+                              key = 'f',
+                          },
+                          {
+                              icon = ' 󰚰 ',
+                              icon_hl = '@variable',
+                              desc = 'Update Packages',
+                              desc_hl = 'String',
+                              group = 'Label',
+                              action = 'AtmoVimUpdate',
+                              keymap = 'u',
+                              key_format = '[%s]',
+                              key = 'u',
+                          },
+                          {
+                              icon = ' 󰩈 ',
+                              icon_hl = '@variable',
+                              desc = 'Exit AtmoVim',
+                              desc_hl = 'String',
+                              group = 'Label',
+                              action = ':qa!',
+                              keymap = 'q',
+                              key_format = '[%s]',
+                              key = 'q'
+                          }
                       }
-                  }
+                  },
               }
-          }
       end,
       require = {'nvim-tree/nvim-web-devicons'}
   }
+
+  use { 'honza/vim-snippets' }
 
   if packer_bootstrap then
     require('packer').sync()

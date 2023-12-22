@@ -47,6 +47,8 @@ vim.api.nvim_set_keymap('n', '<S-Down>', '<C-w><Down>', {noremap = true, silent 
 
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bnext<CR>', { noremap = true, silent = true})
 
+vim.api.nvim_set_keymap('n', '<C-u>', ':AtmoVimUpdate<CR>', { noremap = true, silent = true})
+
 
 -- Visual Mode keymap
 
