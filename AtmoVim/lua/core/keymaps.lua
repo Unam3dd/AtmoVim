@@ -9,6 +9,9 @@ vim.api.nvim_set_keymap('i', '<C-x>', '<ESC>:qa!<CR>', { noremap = true, silent 
 -- Save Shortcut
 vim.api.nvim_set_keymap('i', '<C-s>', '<ESC>:w!<CR>', { noremap = true, silent = false})
 
+
+
+
 -- Normal Mode keymap
 
 -- Exit Shortcut
@@ -26,6 +29,17 @@ vim.api.nvim_set_keymap('n', '<C-V>', ':vsplit<CR>', { noremap = true, silent = 
 
 -- Horizontal Split
 vim.api.nvim_set_keymap('n', '<C-h>', ':split<CR>', { noremap = true, silent = true})
+
+-- Switch split window
+
+vim.api.nvim_set_keymap('n', '<S-Right>', '<C-w><Right>', {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<S-Left>', '<C-w><Left>', {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<S-Up>', '<C-w><Up>', {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<S-Down>', '<C-w><Down>', {noremap = true, silent = true})
+
 
 -- Visual Mode keymap
 
