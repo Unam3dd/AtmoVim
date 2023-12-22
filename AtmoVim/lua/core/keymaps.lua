@@ -55,6 +55,8 @@ vim.api.nvim_set_keymap('n', '<C-Left>', 'b', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-Right>', 'w', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', '<Tab>', '<ESC>:><CR>', { noremap = true, silent = true})
+
 -- Visual Mode keymap
 
 -- All Exit shortcut
@@ -70,3 +72,5 @@ vim.api.nvim_set_keymap('v', '<C-q>', '<ESC>:q!<CR>', { noremap = true, silent =
 vim.api.nvim_set_keymap('v', '<C-t>', '<ESC>:ToggleTerm!<CR>', { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('v', '<S-Tab>', '<ESC>:bnext<CR>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('v', '<Tab>', '><CR>', { noremap = true, silent = true})
