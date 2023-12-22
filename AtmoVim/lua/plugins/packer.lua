@@ -1,3 +1,5 @@
+local HOME = os.getenv('HOME')
+
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -80,6 +82,44 @@ return require('packer').startup(function(use)
         end,
       },
     }
+  }
+
+  use { 
+      'nvimdev/dashboard-nvim',
+      event = 'VimEnter',
+      config = function ()
+          require('dashboard').setup {
+              config = {
+                  shortcut = {
+                      {
+                          icon = ' ',
+                          icon_hl = '@variable',
+                          desc = 'Search Files',
+                          group = 'Label',
+                          action = 'Telescope find_files',
+                          key = 'f',
+                      },
+                      {
+                          icon = ' 󰚰 ',
+                          icon_hl = '@variable',
+                          desc = 'Update Packages',
+                          group = 'Label',
+                          action = 'AtmoVimUpdate',
+                          key = 'u',
+                      },
+                      {
+                          icon = '󰩈',
+                          icon_hl = '@variable',
+                          desc = 'Exit AtmoVim',
+                          group = 'Label',
+                          action = ':qa!',
+                          key = 'q'
+                      }
+                  }
+              }
+          }
+      end,
+      require = {'nvim-tree/nvim-web-devicons'}
   }
 
   if packer_bootstrap then
