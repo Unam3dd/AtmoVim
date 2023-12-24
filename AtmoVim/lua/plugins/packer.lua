@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
 
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
-    use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true, event = "VimEnter"}
   }
 
   use {"akinsho/toggleterm.nvim", tag = '*'}
@@ -84,60 +84,14 @@ return require('packer').startup(function(use)
     }
   }
 
-  use { 
-      'nvimdev/dashboard-nvim',
-      event = 'VimEnter',
-      config = function ()
-          require('dashboard').setup {
-              theme = 'hyper',
-              config = {
-                        week_header = {
-                            enable = false,
-                        },
-                        project = { enable = true, limit = 12, icon = ' ', label = 'Projects', action = 'Telescope find_files cwd='},
-                        mru = { limit = 12, icon =  ' 󰚰 ', cwd_only = false },
-                        shortcut = {
-                          {
-                              icon = ' ',
-                              icon_hl = '@variable',
-                              desc = 'Search Files',
-                              desc_hl = 'String',
-                              group = 'Label',
-                              action = 'Telescope find_files',
-                              keymap = 'f',
-                              key_format = '[%s]',
-                              key = 'f',
-                          },
-                          {
-                              icon = ' 󰚰 ',
-                              icon_hl = '@variable',
-                              desc = 'Update Packages',
-                              desc_hl = 'String',
-                              group = 'Label',
-                              action = 'AtmoVimUpdate',
-                              keymap = 'u',
-                              key_format = '[%s]',
-                              key = 'u',
-                          },
-                          {
-                              icon = ' 󰩈 ',
-                              icon_hl = '@variable',
-                              desc = 'Exit AtmoVim',
-                              desc_hl = 'String',
-                              group = 'Label',
-                              action = ':qa!',
-                              keymap = 'q',
-                              key_format = '[%s]',
-                              key = 'q'
-                          }
-                      }
-                  },
-              }
-      end,
-      require = {'nvim-tree/nvim-web-devicons'}
-  }
-
   use { 'honza/vim-snippets' }
+
+  use { 'Unam3dd/alpha-nvim',
+  config = function ()
+      require('alpha').setup(require'alpha.themes.atmovim'.config)
+    end,
+    event = "VimEnter"
+  }
 
   if packer_bootstrap then
     require('packer').sync()

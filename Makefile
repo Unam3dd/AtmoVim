@@ -21,9 +21,9 @@ all:  $(BACKUP_DIR) $(eval SHELL:=/bin/zsh)
 	@echo -e "\t$(GREEN)│ $(PURPLE)help$(GREEN)                        │ $(PURPLE)show this main$(GREEN)                          │"
 	@echo -e "\t$(GREEN)└─────────────────────────────┴─────────────────────────────────────────┘$(RST)\n\n\n"
 
-install:
+install: $(BACKUP_DIR)
 	@echo -e "$(GREEN)[$(BLUE)+$(GREEN)] Installing Neovim configuration...\033[00m"
-	@cp -r ~/.config/nvim/ $(BACKUP_DIR)
+	@if [ -d $(BACKUP_DIR) ]; then cp -r ~/.config/nvim/ $(BACKUP_DIR); fi
 	@rm -rf ~/.config/nvim/
 	@cp -r ./AtmoVim ~/.config/
 	@mv ~/.config/AtmoVim ~/.config/nvim
@@ -41,4 +41,4 @@ fclean:
 	@rm -rf ~/.config/nvim/
 	@echo -e "$(GREEN)[$(BLUE)+$(GREEN)] Cleaning current neovim configuration\033[00m"
 
-.POHNY: all restore fclean
+.POHNY: all restore install fclean
