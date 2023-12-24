@@ -1,6 +1,3 @@
--- ENV Variables
-require ('core.env')
-
 -- Options
 
 require ('core.options')
