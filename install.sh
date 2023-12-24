@@ -6,6 +6,17 @@ GIT_INSTALLED=$(which git)
 
 if [ $? -eq 0 ] ; then echo "[+] Git is installed !"; else echo "\033[31m[-] Git is not installed !\033[00m"; return 127; fi
 
+echo -e "[+] Installing Packer..."
+
+if [ ! -d "~/.local/share/nvim/site/pack/packer/start/packer.nvim" ];
+then
+    echo "[+] Packer is already present !"
+else
+    GIT_INSTALL_PACKER=$(git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim)
+    if [ $? -eq 0 ]; then echo "[+] Packer is installed successfully !"; else echo "\033[31m[-] Error occured when installing packer !\033[00m"; return 127; fi
+fi;
+
 MAKE_INSTALLED=(which make)
 
 if [ $? -eq 0 ] ; then echo "[+] Make is installed !"; else echo "\033[31m[-] Make is not installed !\033[00m"; return 127; fi
