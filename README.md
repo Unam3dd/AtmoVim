@@ -48,4 +48,3 @@ curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/remove.sh | sh
 | Ctrl+t      | toggle Terminal         |
 | Shift+Tab   | Switch buffer           |
 | Tab         | Tabulate line           |
-| ------------------------------------- |
