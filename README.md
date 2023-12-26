@@ -11,6 +11,10 @@ curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/install.sh | zsh
 curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/remove.sh | zsh
 ```
 
+# Preview AtmoVim
+
+![Image1](https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/screenshot/screenshot.png)
+
 # Commands and Plugins installed :
 
 | Shortcut (I)| Description             |
