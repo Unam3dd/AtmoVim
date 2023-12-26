@@ -21,16 +21,6 @@ curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/remove.sh | sh
 | Ctrl+t      | Toggle a terminal       |
 | Shift+Tab   | switch buffer           |
 
-
-| Shortcut (N)| Description             |
-| ------------  -------------           |
-| Ctrl+q      | close window            |
-| Ctrl+x      | quit AtmoVim            |
-| Ctrl+s      | save files              |
-| Ctrl+t      | Toggle a terminal       |
-| Shift+Tab   | switch buffer           |
-
-
 | Shortcut (V)| Description             |
 | ----------- | ----------------------  |
 | Ctrl+x      | quit AtmoVim            |
