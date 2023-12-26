@@ -3,12 +3,12 @@
 
 # How to Install ?
 ```sh
-curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/install.sh | sh
+curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/install.sh | zsh
 ```
 
 # How to Remove and restore your previous neovim configuration ?
 ```sh
-curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/remove.sh | sh
+curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/remove.sh | zsh
 ```
 
 # Commands and Plugins installed :
