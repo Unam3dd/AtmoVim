@@ -20,7 +20,7 @@ curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/remove.sh | sh
 | Ctrl+s      | save files              |
 | Ctrl+t      | Toggle a terminal       |
 | Shift+Tab   | switch buffer           |
-| -----------   ----------------------  |
+
 | Shortcut (N)| Description             |
 | ------------  ----------------------  |
 | Ctrl+t      | Toggle terminal         |
@@ -38,7 +38,8 @@ curl https://raw.githubusercontent.com/Unam3dd/AtmoVim/main/remove.sh | sh
 | Ctrl+Left   | switch back words       |
 | Ctrl+Right  | switch next words       |
 | Tab         | Tabulate line           |
-| ----------- | ----------------------  |
+
+
 | Shortcut (V)| Description             |
 | ----------- | ----------------------  |
 | Ctrl+x      | quit AtmoVim            |
