@@ -19,6 +19,8 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', '<ESC>:bnext<CR>', { noremap = true, sil
 -- Toggle Terminal
 vim.api.nvim_set_keymap('n', '<C-t>', ':ToggleTerm<CR>', { noremap = true, silent = true})
 
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+
 -- Exit Shortcut
 vim.api.nvim_set_keymap('n', '<C-q>', ':q!<CR>', { noremap = true, silent = true})
 
@@ -35,6 +37,13 @@ vim.api.nvim_set_keymap('n', '<C-V>', ':vsplit<CR>', { noremap = true, silent = 
 -- Horizontal Split
 vim.api.nvim_set_keymap('n', '<C-h>', ':split<CR>', { noremap = true, silent = true})
 
+vim.api.nvim_set_keymap('n', '<C-r><Up>', '<C-w>+<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-r><Down>', '<C-w>-<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-r><Right>', '<C-w><<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-r><Left>', '<C-w>><CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<C-r>=', '<C-w>=<CR>', { noremap = true, silent = true })
+
 -- Switch split window
 
 vim.api.nvim_set_keymap('n', '<S-Right>', '<C-w><Right>', {noremap = true, silent = true})
@@ -44,6 +53,16 @@ vim.api.nvim_set_keymap('n', '<S-Left>', '<C-w><Left>', {noremap = true, silent 
 vim.api.nvim_set_keymap('n', '<S-Up>', '<C-w><Up>', {noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', '<S-Down>', '<C-w><Down>', {noremap = true, silent = true})
+
+
+vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w><Right>', {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<C-Left>', '<C-w><Left>', {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<C-Up>', '<C-w><Up>', {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<C-Down>', '<C-w><Down>', {noremap = true, silent = true})
+
 
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bnext<CR>', { noremap = true, silent = true})
 
@@ -56,6 +75,10 @@ vim.api.nvim_set_keymap('n', '<C-Left>', 'b', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-Right>', 'w', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<Tab>', '<ESC>:><CR>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<C-c>', '<ESC>:s/^/\\/\\/<CR>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<A-c>', '<ESC>:s/^\\/\\///<CR>', { noremap = true, silent = true})
 
 -- Visual Mode keymap
 
@@ -71,6 +94,12 @@ vim.api.nvim_set_keymap('v', '<C-q>', '<ESC>:q!<CR>', { noremap = true, silent =
 
 vim.api.nvim_set_keymap('v', '<C-t>', '<ESC>:ToggleTerm!<CR>', { noremap = true, silent = true})
 
+-- Other keymap
+
 vim.api.nvim_set_keymap('v', '<S-Tab>', '<ESC>:bnext<CR>', { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('v', '<Tab>', '><CR>', { noremap = true, silent = true})
+
+-- Comment keymap
+
+

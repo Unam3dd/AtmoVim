@@ -24,6 +24,8 @@ return require('packer').startup(function(use)
 	use 'olivercederborg/poimandres.nvim'
 	use 'JoosepAlviste/palenightfall.nvim'
 	use { 'Everblush/everblush.nvim', as = 'everblush' }
+    use 'catppuccin/nvim'
+    use 'folke/tokyonight.nvim'
 
 	-- Transparent
 	use 'xiyaowong/nvim-transparent'
@@ -33,6 +35,9 @@ return require('packer').startup(function(use)
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+        config = function ()
+            require "custom.lspconfig"
+        end,
 	}
 
 	-- Coc
@@ -85,6 +90,11 @@ return require('packer').startup(function(use)
   }
 
   use { 'honza/vim-snippets' }
+
+  use { 
+      'xero/miasma.nvim',
+      lazy = false
+  }
 
   use { 'Unam3dd/alpha-nvim',
   config = function ()
