@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
+local package_path_str = "/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/sam0verfl0w/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["42header"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/42header",
+    url = "https://github.com/42paris/42header"
+  },
   ["alpha-nvim"] = {
     config = { "\27LJ\2\n_\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\25alpha.themes.atmovim\nsetup\nalpha\frequire\0" },
     loaded = false,
@@ -81,6 +86,12 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/opt/alpha-nvim",
     url = "https://github.com/Unam3dd/alpha-nvim"
+  },
+  ["avante.nvim"] = {
+    config = { "\27LJ\2\nº\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\3=\3\a\2B\0\2\1K\0\1\0\14providers\vollama\1\0\1\vollama\0\1\0\2\rendpoint\27http://localhost:11434\nmodel\19deepseek-coder\1\0\2\14providers\0\rprovider\vollama\nsetup\vavante\frequire\0" },
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/avante.nvim",
+    url = "https://github.com/yetone/avante.nvim"
   },
   ["bufferline.nvim"] = {
     loaded = true,
@@ -91,6 +102,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
+  },
+  ["copilot.lua"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/copilot.lua",
+    url = "https://github.com/zbirenbaum/copilot.lua"
+  },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
   },
   everblush = {
     loaded = true,
@@ -106,6 +127,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/image.nvim",
     url = "https://github.com/3rd/image.nvim"
+  },
+  ["img-clip.nvim"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/img-clip.nvim",
+    url = "https://github.com/HakonHarnes/img-clip.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -142,6 +168,11 @@ _G.packer_plugins = {
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nvim",
     url = "https://github.com/catppuccin/nvim"
   },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -163,7 +194,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["nvim-window-picker"] = {
-    config = { "\27LJ\2\nç\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\3\0005\4\5\0005\5\4\0=\5\6\0045\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\17filter_rules\1\0\0\abo\fbuftype\1\3\0\0\rterminal\rquickfix\rfiletype\1\0\0\1\4\0\0\rneo-tree\19neo-tree-popup\vnotify\1\0\2\19autoselect_one\2\24include_current_win\1\nsetup\18window-picker\frequire\0" },
+    config = { "\27LJ\2\nŒ\2\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\3\0005\4\5\0005\5\4\0=\5\6\0045\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\17filter_rules\1\0\1\17filter_rules\0\abo\fbuftype\1\3\0\0\rterminal\rquickfix\rfiletype\1\0\2\fbuftype\0\rfiletype\0\1\4\0\0\rneo-tree\19neo-tree-popup\vnotify\1\0\3\abo\0\24include_current_win\1\19autoselect_one\2\nsetup\18window-picker\frequire\0" },
     loaded = true,
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/nvim-window-picker",
     url = "https://github.com/s1n7ax/nvim-window-picker"
@@ -188,6 +219,16 @@ _G.packer_plugins = {
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/poimandres.nvim",
     url = "https://github.com/olivercederborg/poimandres.nvim"
   },
+  ["render-markdown.nvim"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/render-markdown.nvim",
+    url = "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+  },
+  ["snacks.nvim"] = {
+    loaded = true,
+    path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/snacks.nvim",
+    url = "https://github.com/folke/snacks.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/sam0verfl0w/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -211,9 +252,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: avante.nvim
+time([[Config for avante.nvim]], true)
+try_loadstring("\27LJ\2\nº\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\3=\3\a\2B\0\2\1K\0\1\0\14providers\vollama\1\0\1\vollama\0\1\0\2\rendpoint\27http://localhost:11434\nmodel\19deepseek-coder\1\0\2\14providers\0\rprovider\vollama\nsetup\vavante\frequire\0", "config", "avante.nvim")
+time([[Config for avante.nvim]], false)
 -- Config for: nvim-window-picker
 time([[Config for nvim-window-picker]], true)
-try_loadstring("\27LJ\2\nç\1\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\3\0005\4\5\0005\5\4\0=\5\6\0045\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\17filter_rules\1\0\0\abo\fbuftype\1\3\0\0\rterminal\rquickfix\rfiletype\1\0\0\1\4\0\0\rneo-tree\19neo-tree-popup\vnotify\1\0\2\19autoselect_one\2\24include_current_win\1\nsetup\18window-picker\frequire\0", "config", "nvim-window-picker")
+try_loadstring("\27LJ\2\nŒ\2\0\0\6\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\3\0005\4\5\0005\5\4\0=\5\6\0045\5\a\0=\5\b\4=\4\t\3=\3\v\2B\0\2\1K\0\1\0\17filter_rules\1\0\1\17filter_rules\0\abo\fbuftype\1\3\0\0\rterminal\rquickfix\rfiletype\1\0\2\fbuftype\0\rfiletype\0\1\4\0\0\rneo-tree\19neo-tree-popup\vnotify\1\0\3\abo\0\24include_current_win\1\19autoselect_one\2\nsetup\18window-picker\frequire\0", "config", "nvim-window-picker")
 time([[Config for nvim-window-picker]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

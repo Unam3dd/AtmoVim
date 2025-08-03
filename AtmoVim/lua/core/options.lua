@@ -42,6 +42,8 @@ vim.cmd([[set wildmode=list:longest]])
 vim.cmd([[set pumheight=50]])
 vim.cmd([[set whichwrap+=<,>,[,]])
 vim.cmd([[set wildignore=*.docx,*.jpg,*.png,*.mp3,*.gif,*.pdf,*.exe,*.flv,*.img,*.xlsx,*.so,*.o,*.out,*.a]])
+vim.cmd([[let g:user42 = 'stales']])
+vim.cmd([[let g:mail42 = 'stales@student.42angouleme.fr']])
 
 -- Coc Autocomplete
 vim.cmd([[inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"]])
