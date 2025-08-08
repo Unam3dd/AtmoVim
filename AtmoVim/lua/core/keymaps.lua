@@ -74,11 +74,12 @@ vim.api.nvim_set_keymap('n', '<C-Left>', 'b', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-Right>', 'w', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', '<Tab>', '<ESC>:><CR>', { noremap = true, silent = true})
+-- Tab mapping removed to allow LuaSnip to work
+-- vim.api.nvim_set_keymap('n', '<Tab>', '<ESC>:><CR>', { noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('n', '<C-c>', '<ESC>:s/^/\\/\\/<CR>', { noremap = true, silent = true})
-
-vim.api.nvim_set_keymap('n', '<A-c>', '<ESC>:s/^\\/\\///<CR>', { noremap = true, silent = true})
+-- Comments (replaced by Comment.nvim)
+-- vim.api.nvim_set_keymap('n', '<C-c>', '<ESC>:s/^/\\/\\/<CR>', { noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<A-c>', '<ESC>:s/^\\/\\///<CR>', { noremap = true, silent = true})
 
 -- Visual Mode keymap
 
@@ -101,5 +102,20 @@ vim.api.nvim_set_keymap('v', '<S-Tab>', '<ESC>:bnext<CR>', { noremap = true, sil
 vim.api.nvim_set_keymap('v', '<Tab>', '><CR>', { noremap = true, silent = true})
 
 -- Comment keymap
+
+-- Note: which-key is now loaded in init.lua before keymaps
+-- to avoid mapping conflicts
+
+-- Load Telescope mappings
+require('core.telescope-mappings')
+
+-- Load comment mappings
+require('core.comment-mappings')
+
+-- Load formatting mappings
+require('core.format-mappings')
+
+-- Load diagnostic mappings
+require('core.diagnostic-mappings')
 
 

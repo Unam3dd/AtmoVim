@@ -1,24 +1,12 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+return {
+  -- ============================================================================
+  -- GESTIONNAIRE DE PLUGINS
+  -- ============================================================================
+  {
+    "folke/lazy.nvim",
+    version = "*",
+  },
 
--- Add current directory to runtime path
-vim.opt.rtp:prepend(vim.fn.getcwd())
-
-
-
--- Load plugins with lazy.nvim
-require("lazy").setup({
   -- ============================================================================
   -- THÈMES ET COULEURS
   -- ============================================================================
@@ -59,11 +47,12 @@ require("lazy").setup({
   },
 
   -- ============================================================================
-  -- LSP ET COMPLÉTION MODERNE
+  -- LSP ET COMPLÉTION
   -- ============================================================================
   {
     "williamboman/mason.nvim",
     dependencies = {
+      "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
     },
     config = function()
@@ -71,36 +60,13 @@ require("lazy").setup({
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "neovim/nvim-lspconfig",
-    },
+    "neoclide/coc.nvim",
+    branch = "release",
+    lazy = false,
   },
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-    },
-    config = function()
-      require("plugins.cmp")
-    end,
-  },
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
+    lazy = false,
   },
 
   -- ============================================================================
@@ -109,7 +75,6 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("plugins.treesitter")
     end,
@@ -175,6 +140,7 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
+      "3rd/image.nvim",
       {
         "s1n7ax/nvim-window-picker",
         version = "2.*",
@@ -196,93 +162,34 @@ require("lazy").setup({
       require("plugins.neotree")
     end,
   },
-  -- Plugin d'affichage d'images (optionnel)
+
+  -- ============================================================================
+  -- SNIPPETS
+  -- ============================================================================
   {
-    "3rd/image.nvim",
-    opts = {
-      rocks = {
-        hererocks = false,  -- Désactiver hererocks pour éviter les problèmes
-      },
+    "honza/vim-snippets",
+    lazy = false,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = false,
+    dependencies = {
+      "rafamadriz/friendly-snippets",
     },
+    config = function()
+      require("plugins.luasnip")
+    end,
   },
 
   -- ============================================================================
-  -- DASHBOARD MODERNE
+  -- DASHBOARD
   -- ============================================================================
   {
-    "goolord/alpha-nvim",
+    "Unam3dd/alpha-nvim",
+    config = function()
+      require("alpha").setup(require("alpha.themes.atmovim").config)
+    end,
     event = "VimEnter",
-    config = function()
-      require("plugins.alpha")
-    end,
-  },
-
-  -- ============================================================================
-  -- GESTION DES RACCOURCIS
-  -- ============================================================================
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("plugins.which-key")
-    end,
-  },
-  {
-    "stevearc/conform.nvim",
-    event = { "BufWritePre" },
-    config = function()
-      require("plugins.conform")
-    end,
-  },
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("plugins.trouble")
-    end,
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require("plugins.gitsigns")
-    end,
-  },
-
-  -- ============================================================================
-  -- FORMATAGE ET DIAGNOSTICS
-  -- ============================================================================
-  {
-    "stevearc/conform.nvim",
-    event = { "BufWritePre" },
-    config = function()
-      require("plugins.conform")
-    end,
-  },
-  {
-    "numToStr/Comment.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("plugins.comment")
-    end,
-  },
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("plugins.trouble")
-    end,
-  },
-
-  -- ============================================================================
-  -- GIT INTÉGRATION
-  -- ============================================================================
-  {
-    "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require("plugins.gitsigns")
-    end,
   },
 
   -- ============================================================================
@@ -292,11 +199,6 @@ require("lazy").setup({
     "nvim-lua/plenary.nvim",
     lazy = false,
   },
-  {
-    "b0o/SchemaStore.nvim",
-    lazy = false,
-  },
-  -- Sessions supprimées
   {
     "MunifTanjim/nui.nvim",
     lazy = false,
@@ -310,6 +212,7 @@ require("lazy").setup({
     lazy = false,
   },
 
+
   -- ============================================================================
   -- IMAGES ET MÉDIA
   -- ============================================================================
@@ -317,6 +220,8 @@ require("lazy").setup({
     "HakonHarnes/img-clip.nvim",
     lazy = false,
   },
+
+
 
   -- ============================================================================
   -- IA ET ASSISTANCE
@@ -361,65 +266,6 @@ require("lazy").setup({
     "42paris/42header",
     lazy = false,
   },
-}, {
-  change_detection = {
-    notify = false,
-  },
-  -- Désactiver les notifications de santé
-  checker = {
-    enabled = false,
-  },
-  -- Désactiver les vérifications de santé automatiques
-  performance = {
-    rtp = {
-      reset = false,
-    },
-  },
-  -- Supprimer les messages au démarrage
-  ui = {
-    border = "rounded",
-    -- Désactiver les messages de démarrage
-    check_outdated_packages_on_open = false,
-  },
-})
-
--- Options (inclut la définition du leader key)
-require ('core.options')
 
 
-
--- Keymaps (which-key sera chargé automatiquement par Lazy)
-require('core.keymaps')
-
--- Load existing plugin configurations
-require('plugins.themes')
-require('plugins.mason')
-require('plugins.clangd')
-require('plugins.telescope')
-require('plugins.bufferline')
-require('plugins.lualine')
-require('plugins.toggleterm')
-require('plugins.neotree')
-require('plugins.update')
-
-
-
--- Load LSP configuration after all plugins are installed
-vim.api.nvim_create_autocmd("User", {
-  pattern = "LazyDone",
-  callback = function()
-    require('plugins.lsp')
-  end,
-})
-
--- Supprimer tous les messages au démarrage (sans lancer checkhealth)
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    -- Attendre un peu que tous les plugins soient chargés
-    vim.defer_fn(function()
-      -- Supprimer seulement les messages, ne pas lancer checkhealth
-      vim.cmd("silent! messages clear")
-    end, 1000)
-  end,
-  once = true,
-})
+} 
