@@ -386,8 +386,6 @@ require("lazy").setup({
 -- Options (inclut la définition du leader key)
 require ('core.options')
 
-
-
 -- Keymaps (which-key sera chargé automatiquement par Lazy)
 require('core.keymaps')
 
