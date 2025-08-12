@@ -26,8 +26,21 @@ local printf_snippet = s("printf", {
   t("\");"),
 })
 
+-- Snippet pour bloc de commentaire header
+local header_comment_snippet = s("header", {
+  t("/////////////////////////////////////"),
+  t({ "", "//", "" }),
+  t("//"),
+  t("\t\t\t"),
+  i(1, "NAME"),
+  t({ "", "" }),
+  t("//"),
+  t({ "", "////////////////////////////////////" }),
+})
+
 return {
   header_snippet,
   main_snippet,
   printf_snippet,
+  header_comment_snippet,
 } 

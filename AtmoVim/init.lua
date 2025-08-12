@@ -406,8 +406,6 @@ require('plugins.bufferline')
 require('plugins.lualine')
 require('plugins.toggleterm')
 require('plugins.neotree')
-require('plugins.update')
-
 
 
 -- Load LSP configuration after all plugins are installed
