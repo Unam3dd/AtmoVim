@@ -45,6 +45,103 @@ return {
     "xiyaowong/nvim-transparent",
     lazy = false,
   },
+  -- Nouveaux thèmes ajoutés
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "sainnhe/edge",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "sainnhe/sonokai",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "sainnhe/everforest",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "navarasu/onedark.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "marko-cerovac/material.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "luisiacc/gruvbox-baby",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "Mofiqul/dracula.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "joshdick/onedark.vim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "morhetz/gruvbox",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "tomasiser/vim-code-dark",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "ayu-theme/ayu-vim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "NLKNguyen/papercolor-theme",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "altercation/vim-colors-solarized",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "chriskempson/base16-vim",
+    lazy = false,
+    priority = 1000,
+  },
 
   -- ============================================================================
   -- LSP ET COMPLÉTION

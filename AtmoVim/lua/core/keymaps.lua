@@ -13,8 +13,27 @@ vim.api.nvim_set_keymap('i', '<C-t>', '<ESC>:ToggleTerm!<CR>', { noremap = true,
 
 vim.api.nvim_set_keymap('i', '<S-Tab>', '<ESC>:bnext<CR>', { noremap = true, silent = true})
 
+-- ============================================================================
+-- MAPPINGS POUR LES MENUS ET COMPLÉTIONS
+-- ============================================================================
 
--- Normal Mode keymap
+-- Mappings pour les menus de commande (comme :colorscheme)
+-- Utilisation de noremap = false pour permettre la récursion
+vim.api.nvim_set_keymap('c', '<Up>', '<C-p>', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('c', '<Down>', '<C-n>', { noremap = false, silent = true })
+
+-- Mappings pour les menus de sélection (mode select)
+vim.api.nvim_set_keymap('s', '<Up>', '<C-p>', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('s', '<Down>', '<C-n>', { noremap = false, silent = true })
+
+-- Mappings pour les menus de complétion en mode insertion
+-- Note: Ces mappings peuvent entrer en conflit avec d'autres plugins
+-- vim.api.nvim_set_keymap('i', '<Up>', '<C-p>', { noremap = false, silent = true })
+-- vim.api.nvim_set_keymap('i', '<Down>', '<C-n>', { noremap = false, silent = true })
+
+-- ============================================================================
+-- NORMAL MODE KEYMAPS
+-- ============================================================================
 
 -- Toggle Terminal
 vim.api.nvim_set_keymap('n', '<C-t>', ':ToggleTerm<CR>', { noremap = true, silent = true})
@@ -81,7 +100,9 @@ vim.api.nvim_set_keymap('n', '<C-Right>', 'w', { noremap = true, silent = true }
 -- vim.api.nvim_set_keymap('n', '<C-c>', '<ESC>:s/^/\\/\\/<CR>', { noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<A-c>', '<ESC>:s/^\\/\\///<CR>', { noremap = true, silent = true})
 
--- Visual Mode keymap
+-- ============================================================================
+-- VISUAL MODE KEYMAPS
+-- ============================================================================
 
 -- All Exit shortcut
 
@@ -100,6 +121,12 @@ vim.api.nvim_set_keymap('v', '<C-t>', '<ESC>:ToggleTerm!<CR>', { noremap = true,
 vim.api.nvim_set_keymap('v', '<S-Tab>', '<ESC>:bnext<CR>', { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('v', '<Tab>', '><CR>', { noremap = true, silent = true})
+
+-- ============================================================================
+-- CONFIGURATION GLOBALE POUR LES MENUS
+-- ============================================================================
+
+-- Configuration déjà définie plus haut dans le fichier
 
 -- Comment keymap
 

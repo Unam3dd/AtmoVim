@@ -1,28 +1,28 @@
--- Mappings for Comment.nvim that preserve old shortcuts
+-- Mappings pour Comment.nvim qui préservent les anciens raccourcis
 local comment = require('Comment')
 
--- Preserve old comment shortcuts
+-- Préserver les anciens raccourcis de commentaires
 vim.keymap.set('n', '<C-c>', function()
   comment.toggle.linewise.current()
-end, { desc = 'Comment line' })
+end, { desc = 'Commenter ligne' })
 
 vim.keymap.set('n', '<A-c>', function()
   comment.toggle.linewise.current()
-end, { desc = 'Uncomment line' })
+end, { desc = 'Décommenter ligne' })
 
 vim.keymap.set('v', '<C-c>', function()
   comment.toggle.linewise(vim.fn.visualmode())
-end, { desc = 'Comment selection' })
+end, { desc = 'Commenter sélection' })
 
 vim.keymap.set('v', '<A-c>', function()
   comment.toggle.linewise(vim.fn.visualmode())
-end, { desc = 'Uncomment selection' })
+end, { desc = 'Décommenter sélection' })
 
--- Additional mappings for block comments
+-- Mappings supplémentaires pour les commentaires de blocs
 vim.keymap.set('n', '<leader>cb', function()
   comment.toggle.blockwise.current()
-end, { desc = 'Comment block' })
+end, { desc = 'Commenter bloc' })
 
 vim.keymap.set('v', '<leader>cb', function()
   comment.toggle.blockwise(vim.fn.visualmode())
-end, { desc = 'Comment block selection' }) 
+end, { desc = 'Commenter bloc sélection' }) 

@@ -78,6 +78,13 @@ require("lazy").setup({
     },
   },
   {
+    "andweeb/presence.nvim",
+    lazy = false,
+    config = function()
+      require("plugins.presence")
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
@@ -393,6 +400,7 @@ require('core.keymaps')
 require('plugins.themes')
 require('plugins.mason')
 require('plugins.clangd')
+require('plugins.presence')
 require('plugins.telescope')
 require('plugins.bufferline')
 require('plugins.lualine')
