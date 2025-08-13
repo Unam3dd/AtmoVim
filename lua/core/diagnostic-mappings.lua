@@ -1,4 +1,4 @@
--- Mappings for diagnostics with trouble.nvim
+-- Mappings pour diagnostics avec trouble.nvim
 local trouble = require('trouble')
 
 -- Open workspace diagnostics
@@ -25,8 +25,52 @@ end, { desc = 'Location list' })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
 
--- Show diagnostics under cursor
-vim.keymap.set('n', '<leader>dh', vim.diagnostic.open_float, { desc = 'Diagnostic under cursor' })
+-- Navigation avec sévérité spécifique
+vim.keymap.set('n', '[e', function()
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { desc = 'Previous error' })
+
+vim.keymap.set('n', ']e', function()
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { desc = 'Next error' })
+
+vim.keymap.set('n', '[w', function()
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
+end, { desc = 'Previous warning' })
+
+vim.keymap.set('n', ']w', function()
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
+end, { desc = 'Next warning' })
+
+-- Show diagnostics under cursor (manuel si besoin)
+vim.keymap.set('n', '<leader>dh', function()
+  vim.diagnostic.open_float(nil, {
+    focusable = false,
+    close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+    border = 'rounded',
+    source = 'always',
+    prefix = ' ',
+    scope = 'cursor',
+  })
+end, { desc = 'Diagnostic under cursor' })
+
+-- Toggle virtual text diagnostics (SIMPLE)
+vim.keymap.set('n', '<leader>dt', function()
+  local config = vim.diagnostic.config()
+  if config.virtual_text then
+    vim.diagnostic.config({ virtual_text = false })
+    print("Virtual text diagnostics: OFF")
+  else
+    vim.diagnostic.config({ 
+      virtual_text = {
+        enabled = true,
+        source = "if_many",
+        prefix = "●",
+      }
+    })
+    print("Virtual text diagnostics: ON")
+  end
+end, { desc = 'Toggle virtual text diagnostics' })
 
 -- Actions on diagnostics
 vim.keymap.set('n', '<leader>da', vim.diagnostic.setqflist, { desc = 'Diagnostics in quickfix' })

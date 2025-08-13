@@ -151,3 +151,89 @@ vim.cmd[[colorscheme catppuccin]]
 --vim.cmd[[colorscheme base16-summerfruit]]
 --vim.cmd[[colorscheme base16-tomorrow]]
 --vim.cmd[[colorscheme base16-twilight]]
+
+-- ============================================================================
+-- NOUVEAUX THÈMES RÉCEMMENT AJOUTÉS
+-- ============================================================================
+
+-- Nightfly / Moonfly
+--vim.cmd[[colorscheme nightfly]]
+--vim.cmd[[colorscheme moonfly]]
+
+-- VSCode Theme
+--vim.cmd[[colorscheme vscode]]
+
+-- Monokai Pro
+--vim.cmd[[colorscheme monokai-pro]]
+--vim.cmd[[colorscheme monokai-pro-classic]]
+--vim.cmd[[colorscheme monokai-pro-machine]]
+--vim.cmd[[colorscheme monokai-pro-octagon]]
+--vim.cmd[[colorscheme monokai-pro-ristretto]]
+--vim.cmd[[colorscheme monokai-pro-spectrum]]
+
+-- ============================================================================
+-- FONCTION POUR CHANGER DE THÈME FACILEMENT
+-- ============================================================================
+
+-- Vous pouvez utiliser cette fonction pour changer de thème rapidement
+-- :lua change_theme("nom_du_theme")
+function change_theme(theme_name)
+  vim.cmd("colorscheme " .. theme_name)
+  print("Thème changé vers: " .. theme_name)
+end
+
+-- ============================================================================
+-- LISTE DES THÈMES DISPONIBLES
+-- ============================================================================
+--[[
+THÈMES SOMBRES:
+- gruvbox
+- everblush
+- catppuccin-mocha
+- catppuccin-macchiato
+- catppuccin-frappe
+- tokyonight-night
+- tokyonight-storm
+- tokyonight-moon
+- rose-pine
+- rose-pine-moon
+- kanagawa
+- kanagawa-wave
+- kanagawa-dragon
+- nightfox
+- duskfox
+- nordfox
+- terafox
+- material-darker
+- material-deep-ocean
+- material-oceanic
+- material-palenight
+- github_dark
+- github_dark_dimmed
+- sonokai
+- edge
+- ayu-dark
+- ayu-mirage
+- onedark
+- dracula
+- nightfly
+- moonfly
+- vscode
+- monokai-pro
+- miasma
+
+THÈMES CLAIRS:
+- catppuccin-latte
+- tokyonight-day
+- rose-pine-dawn
+- kanagawa-lotus
+- dayfox
+- dawnfox
+- material-lighter
+- github_light
+- ayu-light
+- edge-light
+
+Pour changer de thème, décommentez la ligne correspondante ci-dessus
+ou utilisez la fonction: :lua change_theme("nom_du_theme")
+--]]

@@ -14,7 +14,38 @@ if success then
   luasnip.add_snippets("c", result)
 end
 
+-- Configuration simple et propre des diagnostics
+vim.diagnostic.config({
+  virtual_text = {
+    enabled = true,
+    source = "if_many",
+    prefix = "●",
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
+    },
+  },
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+})
+
 cmp.setup({
+  completion = {
+    completeopt = "menu,menuone,noselect", -- Ne pas sélectionner automatiquement
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -40,7 +71,32 @@ cmp.setup({
     -- Contrôles de base
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<CR>"] = cmp.mapping(function(fallback)
+      if cmp.visible() and cmp.get_active_entry() then
+        cmp.confirm({ select = false })
+        -- Forcer le retour en mode insertion
+        vim.schedule(function()
+          if vim.fn.mode() ~= 'i' then
+            vim.cmd('startinsert')
+          end
+        end)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ["<C-y>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.confirm({ select = true })
+        -- Forcer le retour en mode insertion
+        vim.schedule(function()
+          if vim.fn.mode() ~= 'i' then
+            vim.cmd('startinsert')
+          end
+        end)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
     
     -- Navigation avec Tab (améliorée)
     ["<Tab>"] = cmp.mapping(function(fallback)
@@ -133,7 +189,7 @@ cmp.setup({
     end,
   },
   experimental = {
-    ghost_text = true, -- Afficher le texte fantôme comme VSCode
+    ghost_text = false, -- Désactiver le texte fantôme pour éviter l'insertion automatique
   },
 })
 

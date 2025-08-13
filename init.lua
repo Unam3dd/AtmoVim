@@ -15,8 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Add current directory to runtime path
 vim.opt.rtp:prepend(vim.fn.getcwd())
 
-
-
 -- Load plugins with lazy.nvim
 require("lazy").setup({
   -- ============================================================================
@@ -56,6 +54,79 @@ require("lazy").setup({
   {
     "xiyaowong/nvim-transparent",
     lazy = false,
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "marko-cerovac/material.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "Mofiqul/vscode.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "sainnhe/sonokai",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "sainnhe/edge",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "Shatur/neovim-ayu",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "navarasu/onedark.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "bluz71/vim-nightfly-colors",
+    name = "nightfly",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly", 
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "Mofiqul/dracula.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "loctvl842/monokai-pro.nvim",
+    lazy = false,
+    priority = 1000,
   },
 
   -- ============================================================================
@@ -298,6 +369,13 @@ require("lazy").setup({
   {
     "nvim-lua/plenary.nvim",
     lazy = false,
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("plugins.autopairs")
+    end,
   },
   {
     "b0o/SchemaStore.nvim",

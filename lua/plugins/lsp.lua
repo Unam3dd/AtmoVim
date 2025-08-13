@@ -60,23 +60,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- Configuration des diagnostics
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
-})
-
--- Pas d'inlay hints globalement
-
--- Configuration des signes de diagnostic
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
 
 -- Configuration des LSP spécifiques
 local servers = {
@@ -161,6 +144,12 @@ local servers = {
         },
         staticcheck = true,
         gofumpt = true,
+        -- Optimisations pour réduire la latence
+        diagnosticsDelay = "100ms",
+        experimentalPostfixCompletions = true,
+        completeUnimported = true,
+        usePlaceholders = true,
+        deepCompletion = true,
       },
     },
   },
@@ -235,6 +224,25 @@ local servers = {
   
   -- SQL
   sqlls = {},
+  
+  -- Assembly
+  asm_lsp = {
+    filetypes = { "asm", "s", "S" },
+    settings = {
+      asm_lsp = {
+        -- Configuration de base pour l'assembleur
+        completion = {
+          enable = true,
+        },
+        diagnostics = {
+          enable = true,
+        },
+        hover = {
+          enable = true,
+        },
+      },
+    },
+  },
 }
 
 -- Configuration automatique des LSP via mason-lspconfig
@@ -258,4 +266,4 @@ vim.defer_fn(function()
   else
     print("mason-lspconfig not found, LSP configuration skipped")
   end
-end, 1000) -- Délai de 1 seconde pour s'assurer que tous les plugins sont chargés 
+end, 1000) -- Délai de 1 seconde pour s'assurer que tous les plugins sont chargés
