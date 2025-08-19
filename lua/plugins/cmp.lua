@@ -44,8 +44,9 @@ vim.diagnostic.config({
 
 cmp.setup({
   completion = {
-    completeopt = "menu,menuone,noselect", -- Ne pas sélectionner automatiquement
+    completeopt = "menu,menuone,noselect,noinsert", -- Ne pas sélectionner ni insérer automatiquement
   },
+  preselect = cmp.PreselectMode.None, -- Désactiver la présélection
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -73,7 +74,10 @@ cmp.setup({
     ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping(function(fallback)
       if cmp.visible() and cmp.get_active_entry() then
-        cmp.confirm({ select = false })
+        cmp.confirm({ 
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false -- Ne confirmer que si un élément est explicitement sélectionné
+        })
         -- Forcer le retour en mode insertion
         vim.schedule(function()
           if vim.fn.mode() ~= 'i' then
@@ -98,32 +102,30 @@ cmp.setup({
       end
     end, { "i", "s" }),
     
-    -- Navigation avec Tab (améliorée)
+    -- Navigation avec Tab (désactivée pour l'autocomplétion)
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
+      -- Utiliser Tab uniquement pour l'indentation et les snippets
+      if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       else
         fallback()
       end
     end, { "i", "s" }),
     
-    -- Navigation avec Shift+Tab
+    -- Navigation avec Shift+Tab (désactivée pour l'autocomplétion)
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
+      -- Utiliser Shift+Tab uniquement pour les snippets et désindentation
+      if luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
         fallback()
       end
     end, { "i", "s" }),
     
-    -- Navigation avec flèches (alternative)
+    -- Navigation avec flèches (sans insertion automatique)
     ["<Down>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
       else
         fallback()
       end
@@ -131,7 +133,7 @@ cmp.setup({
     
     ["<Up>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_prev_item()
+        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
       else
         fallback()
       end
