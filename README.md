@@ -135,14 +135,14 @@ Ajoutez vos raccourcis dans `core/keymaps.lua`
 - **JavaScript/TypeScript** - tsserver
 - **Go** - gopls
 - **Rust** - rust-analyzer
-- **PHP** - intelephense
 - **Lua** - lua_ls
-- **HTML/CSS** - html, cssls, emmet_ls
+- **HTML/CSS** - html, cssls
 - **JSON/YAML** - jsonls, yamlls
 - **Markdown** - marksman
 - **Shell** - bashls
 - **Docker** - dockerls
 - **SQL** - sqlls
+- **Assembly** - asm_lsp
 
 ## 🚀 Améliorations Apportées
 

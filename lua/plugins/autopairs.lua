@@ -6,7 +6,6 @@ npairs.setup({
   ts_config = {
     lua = { "string", "source" }, -- Ne pas autocompléter dans les chaînes Lua
     javascript = { "string", "template_string" },
-    java = false, -- Désactiver pour Java
     c = { "string", "comment" }, -- Ne pas autocompléter dans les chaînes et commentaires C
     cpp = { "string", "comment" }, -- Ne pas autocompléter dans les chaînes et commentaires C++
   },
