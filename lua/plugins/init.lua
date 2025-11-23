@@ -324,10 +324,6 @@ return {
   -- IA ET ASSISTANCE
   -- ============================================================================
   {
-    "zbirenbaum/copilot.lua",
-    lazy = false,
-  },
-  {
     "yetone/avante.nvim",
     branch = "main",
     build = "make",
