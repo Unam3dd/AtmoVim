@@ -6,7 +6,7 @@ if treesitter_ok then
   ensure_installed = {
     "c", "cpp", "python", "json", "javascript", "typescript",
     "lua", "vim", "html", "css", "yaml", "toml", "markdown",
-    "go", "php", "java", "xml", "dockerfile", "gitignore"
+    "go", "xml", "dockerfile", "gitignore"
   },
   
   -- Installation automatique désactivée pour éviter les problèmes
