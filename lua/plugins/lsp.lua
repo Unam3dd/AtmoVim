@@ -168,21 +168,9 @@ local servers = {
     },
   },
   
-  -- PHP
-  intelephense = {
-    settings = {
-      intelephense = {
-        environment = {
-          phpVersion = "8.1",
-        },
-      },
-    },
-  },
-  
   -- HTML/CSS
   html = {},
   cssls = {},
-  emmet_ls = {},
   
   -- JSON
   jsonls = {
