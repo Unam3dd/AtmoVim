@@ -485,7 +485,7 @@ require('plugins.neotree')
 vim.api.nvim_create_autocmd("User", {
   pattern = "LazyDone",
   callback = function()
-    require('plugins.lsp')
+    require('lsp')
   end,
 })
 
