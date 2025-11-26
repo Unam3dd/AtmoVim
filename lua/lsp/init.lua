@@ -6,9 +6,6 @@ local lsp_servers = require("lsp.servers")
 
 local M = {}
 
--- Setup des diagnostics
-lsp_config.setup_diagnostics()
-
 -- Configure un serveur LSP
 local function setup_server(server_name, server_config)
   -- Merge avec la config globale

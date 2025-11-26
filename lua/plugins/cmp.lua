@@ -14,34 +14,6 @@ if success then
   luasnip.add_snippets("c", result)
 end
 
--- Configuration simple et propre des diagnostics
-vim.diagnostic.config({
-  virtual_text = {
-    enabled = true,
-    source = "if_many",
-    prefix = "●",
-  },
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN] = " ",
-      [vim.diagnostic.severity.HINT] = " ",
-      [vim.diagnostic.severity.INFO] = " ",
-    },
-  },
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
-  float = {
-    focusable = false,
-    style = "minimal",
-    border = "rounded",
-    source = "always",
-    header = "",
-    prefix = "",
-  },
-})
-
 cmp.setup({
   completion = {
     completeopt = "menu,menuone,noselect,noinsert", -- Ne pas sélectionner ni insérer automatiquement
