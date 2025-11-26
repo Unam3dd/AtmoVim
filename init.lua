@@ -473,7 +473,6 @@ require('core.keymaps')
 -- Load existing plugin configurations
 require('plugins.themes')
 require('plugins.mason')
-require('plugins.clangd')
 require('plugins.presence')
 require('plugins.telescope')
 require('plugins.bufferline')
