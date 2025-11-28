@@ -122,27 +122,3 @@ vim.api.nvim_set_keymap('v', '<S-Tab>', '<ESC>:bnext<CR>', { noremap = true, sil
 
 vim.api.nvim_set_keymap('v', '<Tab>', '><CR>', { noremap = true, silent = true})
 
--- ============================================================================
--- CONFIGURATION GLOBALE POUR LES MENUS
--- ============================================================================
-
--- Configuration déjà définie plus haut dans le fichier
-
--- Comment keymap
-
--- Note: which-key is now loaded in init.lua before keymaps
--- to avoid mapping conflicts
-
--- Load Telescope mappings
-require('core.telescope-mappings')
-
--- Load comment mappings
-require('core.comment-mappings')
-
--- Load formatting mappings
-require('core.format-mappings')
-
--- Load diagnostic mappings
-require('core.diagnostic-mappings')
-
-
