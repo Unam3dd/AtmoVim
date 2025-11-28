@@ -8,5 +8,8 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     lazy = false,
+	keys = {
+		{"<leader>e", ":Neotree toggle<CR>", desc = "Toggle Neotree", silent = true, noremap = true }
+	}
   }
 }
