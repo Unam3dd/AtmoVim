@@ -45,12 +45,11 @@ local settings = {
 
         margin = 5,
         content = {
-            { "📁  Nouveau fichier", ":ene | startinsert", "<leader>n" },
-            { "🔍  Rechercher fichiers", ":w", "<leader>w" },
-            { "📚  Fichiers récents", ":w", "<leader>w" },
-            { "🌳  Explorateur de fichiers", ":w", "<leader>w" },
-            { "💻  Terminal", ":w", "<leader>w" },
-            { "❌  Quitter", ":qa!", "<leader>q" },
+            { "📁  Nouveau fichier", ":ene | startinsert", "<C-n>" },
+            { "🔍  Rechercher fichiers", ":Telescope find_files", "<C-f>" },
+            { "📚  Fichiers récents", ":Telescope oldfiles", "<C-r>" },
+            { "💻  Terminal", ":ToggleTerm", "<C-t>" },
+            { "❌  Quitter", ":qa!", "<C-q>" },
         },
         highlight = "String",
         default_color = "",
