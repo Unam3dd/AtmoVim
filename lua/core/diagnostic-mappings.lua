@@ -1,5 +1,36 @@
--- Mappings pour diagnostics avec trouble.nvim
+-- Configuration complète des diagnostics
+-- Gère TOUS les diagnostics (LSP, linters, etc.)
+
 local trouble = require('trouble')
+
+-- Configuration globale des diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    border = "rounded",
+    source = "always",
+  },
+})
+
+-- Symboles de diagnostics
+local signs = {
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
+}
+
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
+-- ============================================================================
+-- Keymaps pour diagnostics
+-- ============================================================================
 
 -- Open workspace diagnostics
 vim.keymap.set('n', '<leader>dd', function()
