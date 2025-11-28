@@ -21,7 +21,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = { 
-            "lua_ls", "clangd", "asm_lsp", 
+            "lua_ls", "clangd", "asm-lsp", 
             "bashls", "cssls", "dockerls", 
             "gopls", "html", "jsonls", 
             "marksman", "pyright", "rust_analyzer", 
