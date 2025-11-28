@@ -9,7 +9,18 @@ return {
     },
     lazy = false,
 	keys = {
-		{"<leader>e", ":Neotree toggle<CR>", desc = "Toggle Neotree", silent = true, noremap = true }
-	}
+		{"<leader>e", ":Neotree toggle<CR>", desc = "Toggle Neotree", silent = true, noremap = true },
+	},
+	config = function()
+        require("neo-tree").setup({
+          filesystem = {
+            window = {
+              mappings = {
+                ["<TAB>"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
+              },
+            },
+          },
+        })
+      end,
   }
 }
