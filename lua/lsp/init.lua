@@ -1,11 +1,8 @@
 local servers = {
-  "lua_ls", "clangd", "asm-lsp", "bashls", "cssls", "dockerls",
+  "lua_ls", "clangd", "asm_lsp", "bashls", "cssls", "dockerls",
   "gopls", "html", "jsonls", "marksman", "pyright", "rust_analyzer",
   "sqlls", "ts_ls", "yamlls",
 }
-
--- Convertir asm_lsp en asm-lsp pour Mason
-local mason_servers = vim.tbl_map(function(s) return s == "asm_lsp" and "asm-lsp" or s end, servers)
 
 return {
   {
