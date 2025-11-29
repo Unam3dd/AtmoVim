@@ -7,23 +7,26 @@ local i = ls.insert_node
 -- Snippet pour include
 local include_snippet = s("inc", {
   t("#include <"),
-  i(1, "stdio.h"),
+  i(1),
   t(">"),
+  i(0),
 })
 
 -- Snippet simple pour main
 local main_snippet = s("main", {
   t("#include <stdio.h>"),
   t({ "", "int main(void) {", "\t" }),
-  i(1, "return (0);"),
+  i(1),
   t({ "", "}" }),
+  i(0),
 })
 
 -- Snippet simple pour printf
 local printf_snippet = s("printf", {
   t("printf(\""),
-  i(1, "Hello, World!\\n"),
+  i(1),
   t("\");"),
+  i(0),
 })
 
 -- Snippet pour bloc de commentaire header

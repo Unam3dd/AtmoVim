@@ -27,6 +27,9 @@ return {
       
       -- Obtenir les capabilities depuis cmp_nvim_lsp
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      
+      -- Désactiver les snippets LSP pour éviter le mode sélection
+      capabilities.textDocument.completion.completionItem.snippetSupport = false
 
       -- Configuration des diagnostics
       vim.diagnostic.config({
