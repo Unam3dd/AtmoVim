@@ -79,11 +79,9 @@ return {
       { "<leader>ec", "<cmd>Neotree close<CR>", desc = "Close Neo-tree" },
     })
 
-    -- Diagnostics mappings (moved under LSP)
+    -- Trouble/Diagnostics group
     wk.add({
-      { "<leader>lw", "<cmd>TroubleToggle document_diagnostics<CR>", desc = "Document diagnostics" },
-      { "<leader>lq", "<cmd>TroubleToggle quickfix<CR>", desc = "Quickfix" },
-      { "<leader>ll", "<cmd>TroubleToggle loclist<CR>", desc = "Location list" },
+      { "<leader>x", group = "Trouble/Diagnostics" },
     })
 
     -- Plugin mappings
