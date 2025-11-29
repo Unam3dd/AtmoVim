@@ -4,8 +4,8 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 
--- Snippet simple pour header
-local header_snippet = s("header", {
+-- Snippet pour include
+local include_snippet = s("inc", {
   t("#include <"),
   i(1, "stdio.h"),
   t(">"),
@@ -30,16 +30,16 @@ local printf_snippet = s("printf", {
 local header_comment_snippet = s("header", {
   t("/////////////////////////////////////"),
   t({ "", "//", "" }),
-  t("//"),
-  t("\t\t\t"),
-  i(1, "NAME"),
-  t({ "", "" }),
-  t("//"),
+  t("//\t\t\t"),
+  i(1),
+  t({ "", "//" }),
   t({ "", "////////////////////////////////////" }),
+  t({ "", "" }),
+  i(0),
 })
 
 return {
-  header_snippet,
+  include_snippet,
   main_snippet,
   printf_snippet,
   header_comment_snippet,
