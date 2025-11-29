@@ -21,9 +21,13 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    dependencies = { "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
+      
+      -- Obtenir les capabilities depuis cmp_nvim_lsp
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       -- Configuration des diagnostics
       vim.diagnostic.config({
         virtual_text = true,
@@ -88,6 +92,12 @@ return {
         pcall(function()
           server_config = require("lsp.servers." .. server_name)
         end)
+        -- Fusionner les capabilities de cmp_nvim_lsp avec celles du serveur
+        server_config.capabilities = vim.tbl_deep_extend(
+          "force",
+          capabilities,
+          server_config.capabilities or {}
+        )
         vim.lsp.config(server_name, server_config)
         vim.lsp.enable(server_name)
       end
