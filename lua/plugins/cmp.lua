@@ -12,16 +12,23 @@ return {
       "rafamadriz/friendly-snippets",
     },
     config = function()
+      
       local cmp = require("cmp")
       local luasnip = require("luasnip")
 
       -- Charger les snippets friendly-snippets
       require("luasnip.loaders.from_vscode").lazy_load()
 
-      -- Charger les snippets personnalisés C
-      local success, result = pcall(dofile, vim.fn.stdpath("config") .. "/snippets/c.lua")
-      if success then
-        luasnip.add_snippets("c", result)
+      -- Charger automatiquement tous les snippets personnalisés
+      local snippets_path = vim.fn.stdpath("config") .. "/snippets"
+      local snippets_files = vim.fn.glob(snippets_path .. "/*.lua", false, true)
+      
+      for _, file in ipairs(snippets_files) do
+        local lang = vim.fn.fnamemodify(file, ":t:r") -- Extraire le nom sans .lua
+        local success, result = pcall(dofile, file)
+        if success and type(result) == "table" then
+          luasnip.add_snippets(lang, result)
+        end
       end
 
       -- Icônes pour les types
