@@ -13,7 +13,16 @@ return {
       sections = {
         lualine_a = { "hostname", { "datetime", style = "%H:%M:%S" }, "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { "filename", "filesize" },
+        lualine_c = { 
+          "filename", 
+          "filesize",
+          {
+            function()
+              return vim.g.rocket_status or vim.g.random_message or ""
+            end,
+            color = { fg = "#ff9e64", gui = "bold" },
+          },
+        },
         lualine_x = { "encoding", "filetype", "fileformat" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
