@@ -9,8 +9,8 @@ return {
     },
     lazy = false,
 	keys = {
-		{"<leader>e", ":Neotree toggle<CR>", desc = "Toggle Neotree", silent = true, noremap = true },
-    {"<C-n>", ":Neotree reveal<CR>", desc = "Reveal Neotree", silent = true, noremap = true },
+		--{"<leader>ee", ":Neotree toggle<CR>", desc = "Toggle Neotree", silent = true, noremap = true },
+    	{"<C-n>", ":Neotree reveal<CR>", desc = "Reveal Neotree", silent = true, noremap = true },
 	},
 	config = function()
         require("neo-tree").setup({

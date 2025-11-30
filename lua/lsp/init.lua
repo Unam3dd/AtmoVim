@@ -24,11 +24,10 @@ return {
     dependencies = { "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      
-      -- Obtenir les capabilities depuis cmp_nvim_lsp
+
+	  -- Obtenir les capabilities depuis cmp_nvim_lsp
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      
-      -- Désactiver les snippets LSP pour éviter le mode sélection
+	  -- Désactiver les snippets LSP pour éviter le mode sélection
       capabilities.textDocument.completion.completionItem.snippetSupport = false
 
       -- Configuration des diagnostics
@@ -60,7 +59,7 @@ return {
             { "n", "gr", vim.lsp.buf.references },
             { "n", "gi", vim.lsp.buf.implementation },
             { "n", "gt", vim.lsp.buf.type_definition },
-            { "n", "K", vim.lsp.buf.hover },
+            { "n", "lK", vim.lsp.buf.hover },
             { "n", "<leader>rn", vim.lsp.buf.rename },
             { "n", "<leader>ca", vim.lsp.buf.code_action },
             { "n", "<leader>f", vim.lsp.buf.format },

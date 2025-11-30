@@ -31,13 +31,13 @@ return {
     -- Git mappings
     wk.add({
       { "<leader>g", group = "Git" },
-      { "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
-      { "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", desc = "Unstage hunk" },
-      { "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", desc = "Reset hunk" },
-      { "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", desc = "Reset buffer" },
-      { "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", desc = "Preview hunk" },
-      { "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Toggle blame" },
-      { "<leader>gd", "<cmd>Gitsigns diffthis<CR>", desc = "Diff this" },
+      --{ "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
+      --{ "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", desc = "Unstage hunk" },
+      --{ "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", desc = "Reset hunk" },
+      --{ "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", desc = "Reset buffer" },
+      --{ "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", desc = "Preview hunk" },
+      --{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Toggle blame" },
+      --{ "<leader>gd", "<cmd>Gitsigns diffthis<CR>", desc = "Diff this" },
     })
 
     -- LSP mappings
@@ -93,6 +93,10 @@ return {
       { "<leader>pc", "<cmd>Lazy clean<CR>", desc = "Clean plugins" },
       { "<leader>pl", "<cmd>Lazy log<CR>", desc = "Plugin log" },
     })
+
+	wk.add({
+		{ "<leader>z", group = "Copilot"}
+	})
 
     -- Show buffer local keymaps
     wk.add({
