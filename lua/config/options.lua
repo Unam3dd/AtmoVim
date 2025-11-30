@@ -26,7 +26,7 @@ vim.o.hlsearch = true
 vim.o.incsearch = true
 
 -- User interface
-vim.o.cursorline = true
+vim.o.cursorline = false
 vim.o.showmatch = true
 vim.o.wildmenu = true
 vim.o.wildmode = "longest:full,full"
