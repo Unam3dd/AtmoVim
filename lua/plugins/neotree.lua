@@ -9,7 +9,6 @@ return {
     },
     lazy = false,
 	keys = {
-		--{"<leader>ee", ":Neotree toggle<CR>", desc = "Toggle Neotree", silent = true, noremap = true },
     	{"<C-n>", ":Neotree reveal<CR>", desc = "Reveal Neotree", silent = true, noremap = true },
 	},
 	config = function()

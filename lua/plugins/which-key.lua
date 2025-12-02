@@ -73,10 +73,7 @@ return {
 
     -- Explorer mappings
     wk.add({
-      { "<leader>e", group = "Explorer" },
-      { "<leader>ee", "<cmd>Neotree toggle<CR>", desc = "Toggle Neo-tree" },
-      { "<leader>ef", "<cmd>Neotree focus<CR>", desc = "Focus Neo-tree" },
-      { "<leader>ec", "<cmd>Neotree close<CR>", desc = "Close Neo-tree" },
+      { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Neotree Toggle" },
     })
 
     -- Trouble/Diagnostics group
