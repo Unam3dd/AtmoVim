@@ -1,9 +1,6 @@
 return {
   "zaldih/themery.nvim",
   lazy = false,
-  keys = {
-		{"<leader>tc", ":Themery<CR>", desc = "Toggle Themery", silent = true, noremap = true },
-  },
   config = function()
     require("themery").setup({
       themes = {

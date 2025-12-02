@@ -95,6 +95,11 @@ return {
 		{ "<leader>z", group = "Copilot"}
 	})
 
+	-- Themes
+	wk.add({
+		{"<C-T>", ":Themery<CR>", desc = "Toggle Themery", silent = true, noremap = true },
+	})
+
     -- Show buffer local keymaps
     wk.add({
       { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps" },
