@@ -1,7 +1,7 @@
 local servers = {
-  "lua_ls", "clangd", "asm_lsp", "bashls", "cssls", "dockerls",
-  "gopls", "html", "jsonls", "marksman", "pyright", "rust_analyzer",
-  "sqlls", "ts_ls", "yamlls",
+	"lua_ls", "clangd", "asm_lsp", "bashls", "cssls", "dockerls",
+	"html", "jsonls", "marksman", "pyright", "rust_analyzer",
+	"sqlls", "ts_ls", "yamlls",
 }
 
 return {
