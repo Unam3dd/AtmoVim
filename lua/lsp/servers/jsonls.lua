@@ -1,16 +1,13 @@
 -- Configuration pour jsonls (JSON Language Server)
 
+-- Charger les schemas immédiatement (pas en fonction)
+local schemastore_ok, schemastore = pcall(require, "schemastore")
+local schemas = schemastore_ok and schemastore.json.schemas() or {}
+
 return {
   settings = {
     json = {
-      schemas = function()
-        local schemastore_ok, schemastore = pcall(require, "schemastore")
-        if schemastore_ok then
-          return schemastore.json.schemas()
-        else
-          return {}
-        end
-      end,
+      schemas = schemas,
       validate = { enable = true },
     },
   },
