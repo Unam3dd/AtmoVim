@@ -7,8 +7,12 @@ return {
             hint_enable = false,         -- active les hints dans la ligne de signature
             floating_window = true,     -- fenêtre flottante pour la signature
             floating_window_above_cur_line = true, -- affiche au-dessus de la ligne courante
-            fix_pos = true,
-            max_height = 10,
+            fix_pos = false,
+            wrap = true,
+            always_trigger = true,
+            floating_window_off_x = 130,
+            floating_window_off_y = 0,
+            max_height = 12,
             max_width = 80,
             handler_opts = {
                 border = "rounded"      -- bordure arrondie
