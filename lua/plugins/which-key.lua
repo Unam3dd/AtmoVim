@@ -110,6 +110,13 @@ return {
 		{ "<leader>zc", "<cmd>CopilotChat<CR>", desc = "💬 Chat with Copilot"}
 	})
 
+	-- Overseer mappings
+	wk.add({
+		{ "<leader>o", name = "Overseer", icon = "⚙️" },
+		{ "<leader>ot", "<cmd>OverseerToggle<CR>", desc = "🔄 Toggle Overseer" },
+		{ "<leader>or", "<cmd>OverseerRun<CR>", desc = "▶️  Run task" },
+	})
+
 	-- Themes
 	wk.add({
 		{"<C-T>", ":Themery<CR>", desc = "🎨 Toggle Themery", silent = true, noremap = true },
