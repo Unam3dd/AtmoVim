@@ -188,6 +188,120 @@ return {
           end,
         },
       })
+
+      -- ============================================================================
+      -- TÂCHES MAKE
+      -- ============================================================================
+
+      -- Make: Build
+      overseer.register_template({
+        name = "Make: Build",
+        desc = "Compiler avec make",
+        builder = function()
+          local cwd = vim.fn.getcwd()
+          local cmd = { "make" }
+          vim.schedule(function()
+            run_in_floating_terminal(cmd, cwd)
+          end)
+          return {
+            cmd = { "true" },
+            cwd = cwd,
+          }
+        end,
+        condition = {
+          callback = function()
+            return vim.fn.filereadable("Makefile") == 1
+          end,
+        },
+      })
+
+      -- Make: Clean
+      overseer.register_template({
+        name = "Make: Clean",
+        desc = "Nettoyer avec make clean",
+        builder = function()
+          local cwd = vim.fn.getcwd()
+          local cmd = { "make", "clean" }
+          vim.schedule(function()
+            run_in_floating_terminal(cmd, cwd)
+          end)
+          return {
+            cmd = { "true" },
+            cwd = cwd,
+          }
+        end,
+        condition = {
+          callback = function()
+            return vim.fn.filereadable("Makefile") == 1
+          end,
+        },
+      })
+
+      -- Make: Fclean
+      overseer.register_template({
+        name = "Make: Fclean",
+        desc = "Nettoyer complètement avec make fclean",
+        builder = function()
+          local cwd = vim.fn.getcwd()
+          local cmd = { "make", "fclean" }
+          vim.schedule(function()
+            run_in_floating_terminal(cmd, cwd)
+          end)
+          return {
+            cmd = { "true" },
+            cwd = cwd,
+          }
+        end,
+        condition = {
+          callback = function()
+            return vim.fn.filereadable("Makefile") == 1
+          end,
+        },
+      })
+
+      -- Make: All
+      overseer.register_template({
+        name = "Make: All",
+        desc = "Compiler tout avec make all",
+        builder = function()
+          local cwd = vim.fn.getcwd()
+          local cmd = { "make", "all" }
+          vim.schedule(function()
+            run_in_floating_terminal(cmd, cwd)
+          end)
+          return {
+            cmd = { "true" },
+            cwd = cwd,
+          }
+        end,
+        condition = {
+          callback = function()
+            return vim.fn.filereadable("Makefile") == 1
+          end,
+        },
+      })
+
+      -- Make: Re
+      overseer.register_template({
+        name = "Make: Re",
+        desc = "Recompiler avec make re",
+        builder = function()
+          local cwd = vim.fn.getcwd()
+          local cmd = { "make", "re" }
+          vim.schedule(function()
+            run_in_floating_terminal(cmd, cwd)
+          end)
+          return {
+            cmd = { "true" },
+            cwd = cwd,
+          }
+        end,
+        condition = {
+          callback = function()
+            return vim.fn.filereadable("Makefile") == 1
+          end,
+        },
+      })
     end
   },
 }
