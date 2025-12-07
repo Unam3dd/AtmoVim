@@ -14,8 +14,12 @@ return {
 	config = function()
         require("neo-tree").setup({
           popup_border_style = "rounded",
+          close_if_last_window = true,
           enable_diagnostics = true,
           filesystem = {
+            follow_current_file = true,
+            group_empty_dirs = true,
+            hijack_netrw_behavior = "open_default",
             filtered_items = {
               hide_dotfiles = false,
               hide_gitignored = false,

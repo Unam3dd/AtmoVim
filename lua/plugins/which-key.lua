@@ -47,6 +47,7 @@ return {
       { "<leader>wv", "<C-w>v", desc = "📊 Split vertical" },
       { "<leader>ws", "<C-w>s", desc = "📈 Split horizontal" },
       { "<leader>wc", "<C-w>c", desc = "❌ Close window" },
+      { "<leader>wq", "<cmd>close<CR>", desc = "🚪 Close current window" },
       { "<leader>wo", "<C-w>o", desc = "🔒 Close others" },
       { "<leader>w=", "<C-w>=", desc = "⚖️  Equalize" },
     })
@@ -68,7 +69,7 @@ return {
     -- Buffer mappings
     wk.add({
       { "<leader>b", name = "Buffers", icon = "📄" },
-      { "<leader>bd", "<cmd>bdelete<CR>", desc = "🗑️  Delete buffer" },
+      { "<leader>bd", desc = "🗑️  Delete buffer (safe)" },
       { "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", desc = "🔒 Close other buffers" },
     })
 
