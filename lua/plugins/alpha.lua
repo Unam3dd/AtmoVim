@@ -57,7 +57,7 @@ return {
       dashboard.button("e", "📁  Nouveau fichier", ":ene <BAR> startinsert <CR>"),
       dashboard.button("f", "🔍  Rechercher fichiers", ":Telescope find_files <CR>"),
       dashboard.button("r", "📚  Fichiers récents", ":Telescope oldfiles <CR>"),
-      dashboard.button("<space>ee", "🌳  Explorer fichiers", ":Neotree toggle <CR>"),
+      dashboard.button("<space>e", "🌳  Explorer fichiers", ":Neotree toggle <CR>"),
       dashboard.button("t", "💻  Terminal", ":ToggleTerm <CR>"),
       dashboard.button("c", "⚙️  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
       dashboard.button("q", "❌  Quitter", ":qa <CR>"),
