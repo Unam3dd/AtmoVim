@@ -53,10 +53,10 @@ function M.setup()
 
 	-- Boutons
 	dashboard.section.buttons.val = {
-		dashboard.button("e", "📁  Nouveau fichier", ":ene <BAR> startinsert <CR>"),
+		dashboard.button("n", "📁  Nouveau fichier", ":ene <BAR> startinsert <CR>"),
 		dashboard.button("f", "🔍  Rechercher fichiers", ":Telescope find_files <CR>"),
 		dashboard.button("r", "📚  Fichiers récents", ":Telescope oldfiles <CR>"),
-		dashboard.button("<space>e", "🌳  Explorer fichiers", ":Neotree toggle <CR>"),
+		dashboard.button("e", "🌳  Explorer fichiers", ":Neotree toggle <CR>"),
 		dashboard.button("t", "💻  Terminal", ":ToggleTerm <CR>"),
 		dashboard.button("c", "⚙️  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
 		dashboard.button("q", "❌  Quitter", ":qa <CR>"),
