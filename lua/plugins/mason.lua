@@ -26,18 +26,15 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		dependencies = { "williamboman/mason.nvim" },
+		dependencies = { "williamboman/mason.nvim", "hrsh7th/cmp-nvim-lsp" },
 		lazy = false,
 		opts = {
 			ensure_installed = servers,
 			automatic_installation = true,
 		},
-	},
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = { "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" },
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
+		config = function(_, opts)
+			require("mason-lspconfig").setup(opts)
+
 			-- Obtenir les capabilities depuis cmp_nvim_lsp
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			-- Désactiver les snippets LSP pour éviter le mode sélection
@@ -101,58 +98,15 @@ return {
 				end,
 			})
 
-			-- Table pour stocker les configurations des serveurs
-			local server_configs = {}
-
-			for _, server_name in ipairs(servers) do
-				local server_config = { capabilities = capabilities }
-
-				-- Charger la configuration spécifique du serveur si elle existe
-				local ok, custom_config = pcall(require, "lsp.servers." .. server_name)
-				if ok then
-					server_config = vim.tbl_deep_extend("force", server_config, custom_config)
-				end
-
-				-- Configurer le serveur avec l'API native
-				vim.lsp.config(server_name, server_config)
-				server_configs[server_name] = server_config
-			end
-
-			-- Créer un mapping filetype -> serveur
-			local filetype_to_server = {
-				lua = "lua_ls",
-				c = "clangd",
-				cpp = "clangd",
-				asm = "asm_lsp",
-				sh = "bashls",
-				bash = "bashls",
-				css = "cssls",
-				dockerfile = "dockerls",
-				html = "html",
-				json = "jsonls",
-				markdown = "marksman",
-				python = "pyright",
-				rust = "rust_analyzer",
-				sql = "sqlls",
-				typescript = "ts_ls",
-				typescriptreact = "ts_ls",
-				javascript = "ts_ls",
-				javascriptreact = "ts_ls",
-				yaml = "yamlls",
-				go = "gopls",
-			}
-
-			-- Activer automatiquement le LSP au chargement des fichiers
-			vim.api.nvim_create_autocmd({ "FileType" }, {
-				callback = function(args)
-					local filetype = vim.bo[args.buf].filetype
-					local server_name = filetype_to_server[filetype]
-
-					if server_name and server_configs[server_name] then
-						vim.lsp.enable(server_name, args.buf)
-					end
-				end,
+			-- Configurer les capabilities globalement pour tous les serveurs
+			vim.lsp.config("*", {
+				capabilities = capabilities,
 			})
+
+			-- Activer les serveurs LSP (Neovim découvre automatiquement les configs dans lsp/)
+			for _, server_name in ipairs(servers) do
+				vim.lsp.enable(server_name)
+			end
 		end,
 	},
 }
