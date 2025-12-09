@@ -28,6 +28,7 @@ return {
     
     require("bufferline").setup({
       options = {
+        mode = "tabs", -- Affiche uniquement les vrais tabs au lieu de tous les buffers
         diagnostics = "nvim_lsp",
         offsets = {
           {

@@ -1,6 +1,6 @@
 return {
   {'akinsho/toggleterm.nvim', version = "*", opts = {
-    shade_terminals = true,
+    shade_terminals = false,  -- Désactivé pour éviter les artefacts visuels
     terminal_mappings = true,
     hide_numbers = true,
     direction = 'float',  -- Mode flottant par défaut
@@ -15,7 +15,7 @@ return {
       height = function()
         return math.floor(vim.o.lines * 0.6)
       end,
-      winblend = 3,
+      winblend = 0,  -- Terminal complètement opaque pour éviter les bugs visuels
     },
     size = function(term)
       if term.direction == "horizontal" then

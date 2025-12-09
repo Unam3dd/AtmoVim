@@ -16,6 +16,10 @@ return {
           popup_border_style = "rounded",
           close_if_last_window = true,
           enable_diagnostics = true,
+          window = {
+            position = "left",
+            width = 30,
+          },
           filesystem = {
             follow_current_file = true,
             group_empty_dirs = true,
@@ -30,6 +34,13 @@ return {
               },
             },
           },
+        })
+
+        -- Ouvrir automatiquement neo-tree dans les nouveaux tabs
+        vim.api.nvim_create_autocmd("TabNewEntered", {
+          callback = function()
+            vim.cmd("Neotree show")
+          end,
         })
       end,
   }
