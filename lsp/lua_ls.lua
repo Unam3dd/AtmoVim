@@ -19,10 +19,16 @@ return {
 				globals = { "vim" },
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
+				-- Ne charger que les bibliothèques essentielles pour de meilleures performances
+				library = {
+					vim.env.VIMRUNTIME,
+				},
 				checkThirdParty = false,
 			},
 			telemetry = { enable = false },
+			completion = {
+				callSnippet = "Replace",
+			},
 		},
 	},
 }

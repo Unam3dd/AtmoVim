@@ -27,13 +27,16 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim", "hrsh7th/cmp-nvim-lsp" },
-		lazy = false,
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			ensure_installed = servers,
 			automatic_installation = true,
 		},
 		config = function(_, opts)
 			require("mason-lspconfig").setup(opts)
+
+			-- Optimiser updatetime pour CursorHold (par défaut 4000ms est trop lent)
+			vim.opt.updatetime = 300
 
 			-- Obtenir les capabilities depuis cmp_nvim_lsp
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -81,16 +84,23 @@ return {
 				end,
 			})
 
-			-- Diagnostics au survol
-			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+			-- Diagnostics au survol (optimisé)
+			vim.api.nvim_create_autocmd({ "CursorHold" }, {
 				callback = function()
+					-- Ne rien faire si on est déjà dans un float
+					for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+						if vim.api.nvim_win_get_config(winid).zindex then
+							return
+						end
+					end
+
 					local diagnostics = vim.diagnostic.get(0, { lnum = vim.api.nvim_win_get_cursor(0)[1] - 1 })
 					if #diagnostics > 0 then
-						vim.diagnostic.open_float(0, {
+						vim.diagnostic.open_float(nil, {
 							focusable = false,
-							close_events = { "BufLeave", "CursorMoved", "CursorMovedI", "InsertEnter", "FocusLost" },
+							close_events = { "CursorMoved", "InsertEnter", "BufLeave" },
 							border = "rounded",
-							source = "always",
+							source = "if_many",
 							prefix = " ",
 							scope = "cursor",
 						})
