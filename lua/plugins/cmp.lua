@@ -6,6 +6,7 @@ return {
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp",
+       "hrsh7th/cmp-nvim-lsp-signature-help", -- Désactivé temporairement pour tester
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
@@ -79,6 +80,9 @@ return {
           completion = cmp.config.window.bordered({ border = "rounded" }),
           documentation = cmp.config.window.bordered({ border = "rounded" }),
         },
+		view = {
+			entries = "custom",
+		},
         mapping = cmp.mapping.preset.insert({
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
@@ -104,6 +108,7 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp", priority = 1000 },
+		      { name = "nvim_lsp_signature_help", priority = 1000},
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },
           { name = "path", priority = 250 },
@@ -114,6 +119,7 @@ return {
             vim_item.kind = kind_icons[vim_item.kind] or ""
             vim_item.menu = ({
               nvim_lsp = "[LSP]",
+              --
               luasnip = "[Snippet]",
               buffer = "[Buffer]",
               path = "[Path]",

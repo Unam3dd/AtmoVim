@@ -42,7 +42,7 @@ return {
 		},
 
 		-- Set up format-on-save
-		format_on_save = { timeout_ms = 3000 },
+		--format_on_save = { timeout_ms = 3000 },
 		formatters = {
 			shfmt = {
 				append_args = { "-i", "2" },
