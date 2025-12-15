@@ -119,7 +119,6 @@ return {
             vim_item.kind = kind_icons[vim_item.kind] or ""
             vim_item.menu = ({
               nvim_lsp = "[LSP]",
-              --
               luasnip = "[Snippet]",
               buffer = "[Buffer]",
               path = "[Path]",
