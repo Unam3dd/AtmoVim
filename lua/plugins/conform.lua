@@ -25,6 +25,7 @@ return {
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			html = { "prettier" },
+			vue = { "oxfmt" },
 			css = { "prettier" },
 			scss = { "prettier" },
 			c = { "clang_format" },
