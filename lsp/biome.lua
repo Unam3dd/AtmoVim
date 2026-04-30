@@ -1,7 +1,7 @@
 -- Configuration pour Biome (Linter et Formatter JavaScript/TypeScript/JSON)
 
 return {
-	cmd = { "biome", "lsp-proxy" },
+	cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/biome"), "lsp-proxy" },
 	filetypes = {
 		"javascript",
 		"javascriptreact",

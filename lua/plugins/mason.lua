@@ -74,7 +74,7 @@ return {
 						{ "n", "gr",         vim.lsp.buf.references },
 						{ "n", "gi",         vim.lsp.buf.implementation },
 						{ "n", "gt",         vim.lsp.buf.type_definition },
-						{ "n", "lK",         vim.lsp.buf.hover },
+						{ "n", "K",          vim.lsp.buf.hover },
 						{ "n", "<leader>rn", vim.lsp.buf.rename },
 						{ "n", "<leader>ca", vim.lsp.buf.code_action },
 						{ "n", "<leader>f",  vim.lsp.buf.format },

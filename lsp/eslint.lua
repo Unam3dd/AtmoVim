@@ -10,7 +10,7 @@ return {
 		format = false,
 
 		nodePath = vim.NIL,                       -- IMPORTANT (sinon crash)
-		experimental = { useFlatConfig = false }, -- IMPORTANT (sinon crash)
+		experimental = { useFlatConfig = true }, -- v9 flat config (test)
 		problems = { shortenToSingleLine = false }, -- IMPORTANT (sinon crash)
 
 		rulesCustomizations = {},                 -- doit être un tableau (vide OK)
