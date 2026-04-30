@@ -6,6 +6,7 @@ local servers = {
 	"biome",
 	"cssls",
 	"dockerls",
+	"eslint",
 	"html",
 	"jsonls",
 	"marksman",
@@ -69,15 +70,15 @@ return {
 					local bufnr = args.buf
 					local bufopts = { noremap = true, silent = true, buffer = bufnr }
 					local maps = {
-						{ "n", "gd", vim.lsp.buf.definition },
-						{ "n", "gr", vim.lsp.buf.references },
-						{ "n", "gi", vim.lsp.buf.implementation },
-						{ "n", "gt", vim.lsp.buf.type_definition },
-						{ "n", "lK", vim.lsp.buf.hover },
+						{ "n", "gd",         vim.lsp.buf.definition },
+						{ "n", "gr",         vim.lsp.buf.references },
+						{ "n", "gi",         vim.lsp.buf.implementation },
+						{ "n", "gt",         vim.lsp.buf.type_definition },
+						{ "n", "lK",         vim.lsp.buf.hover },
 						{ "n", "<leader>rn", vim.lsp.buf.rename },
 						{ "n", "<leader>ca", vim.lsp.buf.code_action },
-						{ "n", "<leader>f", vim.lsp.buf.format },
-						{ "n", "<C-k>", vim.lsp.buf.signature_help },
+						{ "n", "<leader>f",  vim.lsp.buf.format },
+						{ "n", "<C-k>",      vim.lsp.buf.signature_help },
 					}
 					for _, map in ipairs(maps) do
 						vim.keymap.set(map[1], map[2], map[3], bufopts)
