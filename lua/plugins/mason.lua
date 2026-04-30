@@ -3,6 +3,7 @@ local servers = {
 	"clangd",
 	"asm_lsp",
 	"bashls",
+	"biome",
 	"cssls",
 	"dockerls",
 	"html",

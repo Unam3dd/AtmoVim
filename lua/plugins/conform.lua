@@ -17,11 +17,11 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "isort", "black" },
-			javascript = { "prettier" },
-			typescript = { "prettier" },
-			javascriptreact = { "prettier" },
-			typescriptreact = { "prettier" },
-			json = { "prettier" },
+			javascript = { "biome" },
+			typescript = { "biome" },
+			javascriptreact = { "biome" },
+			typescriptreact = { "biome" },
+			json = { "biome" },
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			html = { "prettier" },
@@ -42,10 +42,28 @@ return {
 		},
 
 		-- Set up format-on-save
-		--format_on_save = { timeout_ms = 3000 },
+		format_on_save = { timeout_ms = 3000 },
 		formatters = {
 			shfmt = {
 				append_args = { "-i", "2" },
+			},
+			biome = {
+				args = function(self, ctx)
+					local args = {
+					"check",
+					"--write",
+					"--stdin-file-path",
+					"$FILENAME",
+					"--format-with-errors=true",
+				}
+					if not self:cwd(ctx) then
+						table.insert(args, "--indent-style")
+						table.insert(args, vim.bo[ctx.buf].expandtab and "space" or "tab")
+						table.insert(args, "--indent-width")
+						table.insert(args, tostring(ctx.shiftwidth))
+					end
+					return args
+				end,
 			},
 		},
 	},
