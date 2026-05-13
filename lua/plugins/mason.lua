@@ -11,11 +11,11 @@ local servers = {
 	"jsonls",
 	"marksman",
 	"pyright",
-	"rust_analyzer",
 	"sqlls",
 	"ts_ls",
 	"yamlls",
 }
+local mason_ensure_installed = vim.list_extend(vim.deepcopy(servers), { "rust_analyzer" })
 
 return {
 	{
@@ -31,7 +31,7 @@ return {
 		dependencies = { "williamboman/mason.nvim", "hrsh7th/cmp-nvim-lsp" },
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
-			ensure_installed = servers,
+			ensure_installed = mason_ensure_installed,
 			automatic_installation = true,
 		},
 		config = function(_, opts)
