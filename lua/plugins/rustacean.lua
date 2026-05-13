@@ -3,6 +3,7 @@ return {
 	version = "^6",
 	ft = { "rust" },
 	init = function()
+
 		vim.g.rustaceanvim = {
 			server = {
 				default_settings = {
@@ -11,6 +12,31 @@ return {
 							allFeatures = true,
 						},
 						checkOnSave = true,
+						check = {
+							command = "clippy",
+						},
+						diagnostics = {
+							enable = true,
+						},
+						inlayHints = {
+							bindingModeHints = {
+								enable = true,
+							},
+							closureReturnTypeHints = {
+								enable = "always",
+							},
+							lifetimeElisionHints = {
+								enable = "skip_trivial",
+							},
+							reborrowHints = {
+								enable = "never",
+							},
+							expressionAdjustmentHints = { enable = "never" },
+							typeHints = {
+								hideClosureInitialization = false,
+								hideNamedConstructor = true,
+							},
+						},
 					},
 				},
 			},
@@ -37,6 +63,10 @@ return {
 				if vim.bo[bufnr].filetype ~= "rust" then
 					return
 				end
+
+				-- Keep rust diagnostics from clippy/check, but disable semantic tokens
+				-- to avoid unresolvedReference false-positive highlighting.
+				pcall(vim.lsp.semantic_tokens.stop, bufnr, client.id)
 
 				if vim.lsp.inlay_hint and type(vim.lsp.inlay_hint.enable) == "function" then
 					local ok = pcall(vim.lsp.inlay_hint.enable, true, { bufnr = bufnr })
